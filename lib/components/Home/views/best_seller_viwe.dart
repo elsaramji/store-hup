@@ -6,7 +6,6 @@ import '../../../core/custom/widgets/CustomHome/custom_Page_Appbar.dart';
 import '../../../core/styles/color_style.dart';
 import '../../../core/styles/font_style.dart';
 import '../../../service/firebase/data/firebaseDataService.dart';
-import '../../navigation/view/bottom_navigation_bar.dart';
 
 class BestSellerViwe extends StatefulWidget {
   static const String id = 'BestSeller';
@@ -22,7 +21,6 @@ class _BestSellerViweState extends State<BestSellerViwe> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: CustomBottomNavigationBar(),
       body: SafeArea(
         child: CustomScrollView(slivers: [
           SliverToBoxAdapter(

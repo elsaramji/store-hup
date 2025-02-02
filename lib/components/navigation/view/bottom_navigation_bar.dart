@@ -1,16 +1,19 @@
 // components/navigation/view/bottom_navigation_bar.dart
 
 import 'package:flutter/material.dart';
+import 'package:store_hup/components/Home/views/home_view.dart';
+import 'package:store_hup/components/cart/product_cart.dart';
+import 'package:store_hup/components/products/view/home_products_view.dart';
+import 'package:store_hup/components/profile/user_profile.dart';
 
 import '../../../core/models/navigation_icon_entity.dart';
 import '../widget/navigation_item.dart';
 
-
-
-
 // ignore: must_be_immutable
 class CustomBottomNavigationBar extends StatefulWidget {
-  CustomBottomNavigationBar({Key? key}) : super(key: key);
+  int selectedIndex;
+  CustomBottomNavigationBar({Key? key, required this.selectedIndex})
+      : super(key: key);
 
   @override
   State<CustomBottomNavigationBar> createState() =>
@@ -18,8 +21,12 @@ class CustomBottomNavigationBar extends StatefulWidget {
 }
 
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
-  int selectedIndex = 0;
-
+  List<String> goto = [
+    HomeView.id,
+    HomeProductsView.routeName,
+    ProductCart.routeName,
+    UserProfile.routeName,
+  ];
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -49,25 +56,19 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
               .entries
               .map((e) {
             int index = e.key;
-
             NavigationIconEntity navigationIconEntity = e.value;
             return GestureDetector(
               onTap: () {
-                selectedIndex = index;
+                widget.selectedIndex = index;
+                Navigator.popAndPushNamed(context, goto[index]);
                 setState(() {});
               },
               child: CustomNavigtionItmes(
                 navigationIconEntity: navigationIconEntity,
-                isactive: selectedIndex == index,
+                isactive: widget.selectedIndex == index,
               ),
             );
           }).toList(),
         ));
   }
 }
-
-
-
-
-
-

@@ -10,13 +10,14 @@ import '../widgets/offers/offers_scroll.dart';
 
 class HomeView extends StatelessWidget {
   static const String id = 'HomeView';
+  static const int index = 0;
 
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: CustomBottomNavigationBar(),
+      bottomNavigationBar: CustomBottomNavigationBar(selectedIndex: index,),
       body: SafeArea(
         child: Container(
             margin: const EdgeInsets.symmetric(horizontal: 16),

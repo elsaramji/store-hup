@@ -1,6 +1,9 @@
 // core/helper/on_Generate.dart
 
 import 'package:flutter/material.dart';
+import 'package:store_hup/components/cart/product_cart.dart';
+import 'package:store_hup/components/products/view/home_products_view.dart';
+import 'package:store_hup/components/profile/user_profile.dart';
 
 import '../../components/Home/views/best_seller_viwe.dart';
 import '../../components/Home/views/home_view.dart';
@@ -33,6 +36,15 @@ Route<dynamic>? ongenerate(RouteSettings setting) {
       return MaterialPageRoute(builder: (context) => Factory());
     case BestSellerViwe.id:
       return MaterialPageRoute(builder: (context) => BestSellerViwe());
+
+    case HomeProductsView.routeName:
+      return MaterialPageRoute(builder: (context) => const HomeProductsView());
+
+    case ProductCart.routeName:
+      return MaterialPageRoute(builder: (context) => ProductCart());
+
+    case UserProfile.routeName:
+      return MaterialPageRoute(builder: (context) => const UserProfile());
     default:
       return null;
   }
