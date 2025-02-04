@@ -30,8 +30,8 @@ Route<dynamic>? ongenerate(RouteSettings setting) {
     case ForgetPasswordViwe.routeName:
       return MaterialPageRoute(builder: (context) => ForgetPasswordViwe());
 
-    case HomeView.id:
-      return MaterialPageRoute(builder: (context) => const HomeView());
+    case HomeMainView.id:
+      return MaterialPageRoute(builder: (context) => HomeMainView());
     case Factory.route:
       return MaterialPageRoute(builder: (context) => Factory());
     case BestSellerViwe.id:

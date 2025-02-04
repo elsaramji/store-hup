@@ -4,8 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/custom/widgets/custom_Appbar.dart';
 import '../../../../../core/custom/widgets/custom_loadingProgress.dart';
-import '../../../../../core/injection/Git_it.dart';
-import '../../../../../service/firebase/auth/auth_service.dart';
 import '../../../../../service/state_management/sginin_cubit/siginin_cubit_cubit.dart';
 import '../logics/listener.dart';
 import '../widgets/main_viwe.dart';

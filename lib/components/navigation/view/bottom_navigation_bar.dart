@@ -22,7 +22,7 @@ class CustomBottomNavigationBar extends StatefulWidget {
 
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   List<String> goto = [
-    HomeView.id,
+    HomeMainView.id,
     HomeProductsView.routeName,
     ProductCart.routeName,
     UserProfile.routeName,

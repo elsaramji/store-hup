@@ -1,6 +1,5 @@
 // components/cart/product_cart.dart
 import 'package:flutter/material.dart';
-import 'package:store_hup/components/navigation/view/bottom_navigation_bar.dart';
 
 class ProductCart extends StatelessWidget {
   static const String routeName = 'ProductCart';
@@ -9,12 +8,9 @@ class ProductCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: CustomBottomNavigationBar(selectedIndex: index,),
-      body: Container(
-        child: Center(
-          child: Text("ProductCart"),
-        ),
+    return Container(
+      child: Center(
+        child: Text("ProductCart"),
       ),
     );
   }

@@ -1,4 +1,4 @@
-// components/futures/splash/logics/splash_logic.dart
+// components/futures/Splash/logics/splash_logic.dart
 
 import 'package:flutter/material.dart';
 
@@ -15,7 +15,7 @@ class SplashLogic {
     final authService = getIt<FirebaseAuthService>();
     await Future.delayed(const Duration(seconds: 3));
     if (authService.isLoggedIn()) {
-      Navigator.pushReplacementNamed(context, HomeView.id);
+      Navigator.pushReplacementNamed(context, HomeMainView.id);
     } else if (Preferences.getBool(Keys.isviewedOnBoarding)) {
       Navigator.pushReplacementNamed(context, Signin.route);
     } else {

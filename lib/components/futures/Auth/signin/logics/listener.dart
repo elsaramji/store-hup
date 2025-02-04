@@ -7,14 +7,13 @@ import '../../../../../service/firebase/auth/auth_service.dart';
 import '../../../../../service/state_management/sginin_cubit/siginin_cubit_cubit.dart';
 import '../../../../Home/views/home_view.dart';
 
-void signinlistener(
-    SigninState state, BuildContext context) {
+void signinlistener(SigninState state, BuildContext context) {
   if (state is SigninError) {
     ErrorsMassage.errorsBar(context, state.error);
   }
   if (state is SigninSuccess) {
     if (getIt<FirebaseAuthService>().isLoggedIn()) {
-      Navigator.pushReplacementNamed(context, HomeView.id);
+      Navigator.pushReplacementNamed(context, HomeMainView.id);
     }
     ErrorsMassage.errorsBar(context, 'تم تسجيل الدخول بنجاح');
   }

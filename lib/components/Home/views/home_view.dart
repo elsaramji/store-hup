@@ -1,58 +1,37 @@
 // components/Home/views/home_view.dart
 import 'package:flutter/material.dart';
-import 'package:store_hup/components/Home/custom/widgets/custom_bast_seller.dart';
-import 'package:store_hup/components/Home/custom/widgets/product_stream_biluder.dart';
+import 'package:store_hup/components/Home/views/home_view_body.dart';
+import 'package:store_hup/components/navigation/logic/solamon_logic.dart';
+import 'package:store_hup/components/navigation/view/solamon_navigation_bar.dart';
 
-import '../../../core/custom/widgets/CustomHome/custom_prodcut_searchbar.dart';
-import '../../navigation/view/bottom_navigation_bar.dart';
-import '../custom/widgets/custom_home_appbar.dart';
-import '../widgets/offers/offers_scroll.dart';
-
-class HomeView extends StatelessWidget {
+class HomeMainView extends StatefulWidget {
   static const String id = 'HomeView';
-  static const int index = 0;
+  int selectedIndex = 0;
+  Widget body = HomeViwebody();
 
-  const HomeView({super.key});
+  HomeMainView({super.key});
 
   @override
+  State<HomeMainView> createState() => _HomeMainViewState();
+}
+
+class _HomeMainViewState extends State<HomeMainView> {
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: CustomBottomNavigationBar(selectedIndex: index,),
-      body: SafeArea(
-        child: Container(
-            margin: const EdgeInsets.symmetric(horizontal: 16),
-            height: MediaQuery.sizeOf(context).height,
-            width: MediaQuery.sizeOf(context).width,
-            child: CustomScrollView(slivers: [
-              SliverToBoxAdapter(child: SizedBox(height: 16)),
-              CustomHomeAppBar(
-                userName: "Mahmoud",
-              ),
-              SliverToBoxAdapter(child: SizedBox(height: 12)),
-              CustomProductSearchBar(
-                onChanged: (value) {},
-              ),
-              SliverToBoxAdapter(child: SizedBox(height: 12)),
-              // body Section
-              // offers
-              SliverToBoxAdapter(
-                  child: AspectRatio(
-                aspectRatio: 342 / 158,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => OffersItem(),
-                  itemCount: 5,
-                ),
-              )),
-              //bast seller
-              BastSellerBar(),
-              // Products
-              ProductsSreamBuilder(),
-            ])),
-      ),
+    var solamonNavigationBar = SolamonNavigationBar(
+      selectedIndex: widget.selectedIndex,
+      onTap: (index) {
+        setState(() {
+          widget.selectedIndex = index;
+        });
+        SolamonLogic.bodybuilder(widget.selectedIndex, widget); 
+      },
     );
+    return Scaffold(
+        body: widget.body, bottomNavigationBar: solamonNavigationBar);
   }
 }
+
 
 /*
         Column(children: [
