@@ -32,7 +32,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     return Container(
         height: MediaQuery.sizeOf(context).height * 0.08,
         padding: const EdgeInsets.symmetric(horizontal: 16),
-        decoration: ShapeDecoration(
+        decoration: const ShapeDecoration(
           color: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(

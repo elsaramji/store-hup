@@ -12,7 +12,7 @@ class ExitDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      content: Text('هل تريد الخروج من التطبيق؟'),
+      content: const Text('هل تريد الخروج من التطبيق؟'),
       actions: <Widget>[
         CustomButton(
            titelcolor: AppColors.white,

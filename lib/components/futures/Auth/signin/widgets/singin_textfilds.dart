@@ -45,7 +45,7 @@ class _SigninFormState extends State<SigninForm> {
             suffixicons: Items.visiibleIcons,
           ),
           const SizedBox(height: 16),
-          NavigateForgetpassword(),
+          const NavigateForgetpassword(),
           const SizedBox(height: 16),
           SigninButton(
             onPressed: () {

@@ -39,7 +39,7 @@ class FruitHup extends StatelessWidget {
         fontFamily: 'Cairo',
         scaffoldBackgroundColor: AppColors.primaryWhite,
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
           backgroundColor: AppColors.primaryWhite,
           scrolledUnderElevation: 0,
           centerTitle: true,
@@ -52,7 +52,7 @@ class FruitHup extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: S.delegate.supportedLocales,
-      locale: Locale('ar'),
+      locale: const Locale('ar'),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: (setting) => ongenerate(setting),
       initialRoute: Splash.route,

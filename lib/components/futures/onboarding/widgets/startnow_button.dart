@@ -23,7 +23,7 @@ class StartUpButton extends StatelessWidget {
       maintainSize: true,
       maintainState: true,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: CustomButton(
            titelcolor: AppColors.white,
           titel: "ابدأ الان",

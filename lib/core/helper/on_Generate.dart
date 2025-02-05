@@ -33,15 +33,15 @@ Route<dynamic>? ongenerate(RouteSettings setting) {
     case HomeMainView.id:
       return MaterialPageRoute(builder: (context) => HomeMainView());
     case Factory.route:
-      return MaterialPageRoute(builder: (context) => Factory());
+      return MaterialPageRoute(builder: (context) => const Factory());
     case BestSellerViwe.id:
-      return MaterialPageRoute(builder: (context) => BestSellerViwe());
+      return MaterialPageRoute(builder: (context) => const BestSellerViwe());
 
     case HomeProductsView.routeName:
       return MaterialPageRoute(builder: (context) => const HomeProductsView());
 
     case ProductCart.routeName:
-      return MaterialPageRoute(builder: (context) => ProductCart());
+      return MaterialPageRoute(builder: (context) => const ProductCart());
 
     case UserProfile.routeName:
       return MaterialPageRoute(builder: (context) => const UserProfile());

@@ -33,7 +33,7 @@ class OffersItem extends StatelessWidget {
                 top: 0,
                 right: 0,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     topRight: Radius.circular(8),
                     bottomRight: Radius.circular(8),
                   ),

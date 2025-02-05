@@ -31,13 +31,13 @@ class CustomSocialButton extends StatelessWidget {
               Visibility(
                   child: SvgPicture.asset(iconphat ?? ''),
                   visible: iconphat != null),
-              Spacer(),
+              const Spacer(),
               Text(
                 title,
                 style: TextsStyle.semibold13
                     .copyWith(color: AppColors.grayscale900),
               ),
-              Spacer(),
+              const Spacer(),
             ],
           ),
         ));

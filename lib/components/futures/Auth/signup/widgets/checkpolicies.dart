@@ -29,7 +29,7 @@ class _ChackPolicesState extends State<ChackPolices> {
               widget.onChanged!(value);
               setState(() {});
             }),
-        Expanded(
+        const Expanded(
           child: Text.rich(TextSpan(children: [
             TextSpan(text: " من خلال إنشاء حساب ، "),
             TextSpan(

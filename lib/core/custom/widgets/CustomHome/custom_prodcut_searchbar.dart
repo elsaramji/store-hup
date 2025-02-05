@@ -16,7 +16,7 @@ class CustomProductSearchBar extends StatelessWidget {
     return SliverToBoxAdapter(
       child: Container(
         height: 40,
-        decoration: BoxDecoration(color: AppColors.white, boxShadow: [
+        decoration: const BoxDecoration(color: AppColors.white, boxShadow: [
           BoxShadow(
             color: Color(0x0A000000),
             blurRadius: 9,
@@ -33,7 +33,7 @@ class CustomProductSearchBar extends StatelessWidget {
                 hoverColor: AppColors.white,
                 filled: true,
                 fillColor: AppColors.white,
-                border: OutlineInputBorder(
+                border: const OutlineInputBorder(
                   borderRadius: BorderRadius.zero,
                   borderSide: BorderSide(
                     width: 0,

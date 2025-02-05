@@ -27,7 +27,7 @@ class BastSellerBar extends StatelessWidget {
                 style:
                     TextsStyle.bold16.copyWith(color: AppColors.grayscale950),
               ),
-              Spacer(),
+              const Spacer(),
               Text(
                 "المزيد...",
                 style: TextsStyle.regular13

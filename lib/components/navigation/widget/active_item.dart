@@ -15,7 +15,7 @@ class ActiveItem extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.only(left: 8),
       decoration: BoxDecoration(
-        color: Color(0xFFEEEEEE),
+        color: const Color(0xFFEEEEEE),
         shape: BoxShape.rectangle,
         borderRadius: BorderRadius.circular(30),
       ),

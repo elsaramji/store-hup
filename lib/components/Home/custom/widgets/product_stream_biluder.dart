@@ -110,8 +110,8 @@ class _ProductsSreamBuilderState extends State<ProductsSreamBuilder> {
                   ),
                 );
               } else {
-                return SliverToBoxAdapter(
-                  child: const Center(
+                return const SliverToBoxAdapter(
+                  child: Center(
                       child: SpinKitCircle(
                     color: Colors.green,
                   )),
@@ -119,8 +119,8 @@ class _ProductsSreamBuilderState extends State<ProductsSreamBuilder> {
               }
             }
           } else {
-            return SliverToBoxAdapter(
-              child: const Center(
+            return const SliverToBoxAdapter(
+              child: Center(
                   child: SpinKitCircle(
                 color: Colors.green,
               )),

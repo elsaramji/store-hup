@@ -15,15 +15,15 @@ class SignupView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
   
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16),
       child: SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(height: 24),
-            const AddUserForm(),
+            AddUserForm(),
             SizedBox(height: 26),
-            const HaveAccount()
+            HaveAccount()
           ],
         ),
       ),

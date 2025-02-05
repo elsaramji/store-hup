@@ -49,7 +49,7 @@ class CustomBoard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 title,
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 Text(
                   subtitel,
                   textAlign: TextAlign.center,

@@ -32,7 +32,7 @@ class SocialButtonSection extends StatelessWidget {
             BlocProvider.of<SigninCubit>(context).signinWithApple();
           },
         ),
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
         CustomSocialButton(
           title: "تسجيل بواسطة فيسبوك",
           iconphat: Assets.assetsImagesFacebook,

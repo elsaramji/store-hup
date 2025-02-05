@@ -21,15 +21,15 @@ class HomeViwebody extends StatelessWidget {
           height: MediaQuery.sizeOf(context).height,
           width: MediaQuery.sizeOf(context).width,
           child: CustomScrollView(slivers: [
-            SliverToBoxAdapter(child: SizedBox(height: 16)),
-            CustomHomeAppBar(
+            const SliverToBoxAdapter(child: SizedBox(height: 16)),
+            const CustomHomeAppBar(
               userName: "Mahmoud",
             ),
-            SliverToBoxAdapter(child: SizedBox(height: 12)),
+            const SliverToBoxAdapter(child: SizedBox(height: 12)),
             CustomProductSearchBar(
               onChanged: (value) {},
             ),
-            SliverToBoxAdapter(child: SizedBox(height: 12)),
+            const SliverToBoxAdapter(child: SizedBox(height: 12)),
             // body Section
             // offers
             SliverToBoxAdapter(
@@ -37,14 +37,14 @@ class HomeViwebody extends StatelessWidget {
               aspectRatio: 342 / 158,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => OffersItem(),
+                itemBuilder: (context, index) => const OffersItem(),
                 itemCount: 5,
               ),
             )),
             //bast seller
-            BastSellerBar(),
+            const BastSellerBar(),
             // Products
-            ProductsSreamBuilder(),
+            const ProductsSreamBuilder(),
           ])),
     );
   }

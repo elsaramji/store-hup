@@ -16,13 +16,13 @@ class CustomButtonsStyle {
         borderRadius: BorderRadius.circular(16),
       ));
   static final ButtonStyle socailAuthButtonstyle = ElevatedButton.styleFrom(
-      textStyle: TextStyle(color: Color(0xff0C0D0D)),
+      textStyle: const TextStyle(color: Color(0xff0C0D0D)),
       backgroundColor: AppColors.primaryWhite,
       overlayColor: AppColors.primaryColor,
       foregroundColor: AppColors.primaryColor,
       elevation: 0,
       shape: RoundedRectangleBorder(
-        side: BorderSide(color: Color(0xffDDDFDF)),
+        side: const BorderSide(color: Color(0xffDDDFDF)),
         borderRadius: BorderRadius.circular(10),
       ));
   static final ButtonStyle itembuttonstyle = ElevatedButton.styleFrom(

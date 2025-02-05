@@ -30,7 +30,7 @@ class Signin extends StatelessWidget {
             builder: (context, state) {
               return CustomLoadingProgress(
                   isOn: state is SigninLoading ? true : false,
-                  child: SinginMainViwe());
+                  child: const SinginMainViwe());
             },
           );
         }),

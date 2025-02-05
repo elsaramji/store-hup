@@ -6,7 +6,7 @@ import '../styles/color_style.dart';
 
 class Items {
   static List<Icon> visiibleIcons = [
-    Icon(Icons.visibility, color: AppColors.graySpecial),
-    Icon(Icons.visibility_off, color: AppColors.graySpecial),
+    const Icon(Icons.visibility, color: AppColors.graySpecial),
+    const Icon(Icons.visibility_off, color: AppColors.graySpecial),
   ];
 }

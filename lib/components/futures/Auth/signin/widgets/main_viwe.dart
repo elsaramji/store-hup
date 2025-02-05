@@ -13,22 +13,22 @@ class SinginMainViwe extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16),
       child: SingleChildScrollView(
         child: Column(
           children: [
-            const SizedBox(height: 24),
-            const SigninForm(),
+            SizedBox(height: 24),
+            SigninForm(),
 
             // NotHaveAccount
-            const SizedBox(height: 33),
+            SizedBox(height: 33),
             DonthaveAccount(),
             // OrDivider
-            const SizedBox(height: 33),
+            SizedBox(height: 33),
             CustomOrDivider(),
             // SocialButtonSection
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             SocialButtonSection()
           ],
         ),

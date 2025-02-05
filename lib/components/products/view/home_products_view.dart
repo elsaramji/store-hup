@@ -9,8 +9,12 @@ class HomeProductsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // app bar title
+    //serch text field
+    //custom vertical list of products
+    //best selling products
     return Container(
-        child: Center(
+        child: const Center(
           child: Text("HomeProductsView"),
         ),
       

@@ -16,7 +16,7 @@ class Signup extends StatelessWidget {
     return BlocProvider(
       create: (context) => SignupCubit(getIt<FirebaseAuthService>()),
       child: Builder(builder: (context) {
-        return BlocConsumer<SignupCubit, SignupState>(
+        return const BlocConsumer<SignupCubit, SignupState>(
           listener: SignupLogicsState.singupBlocListener,
           builder: SignupLogicsState.singupBlocBuilder,
         );

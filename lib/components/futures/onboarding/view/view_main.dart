@@ -42,18 +42,18 @@ class _MainBoardsState extends State<MainBoards> {
             child: PageView(
               controller: pageController,
               scrollDirection: Axis.horizontal,
-              children: [BoardOne(), BoardTow()],
+              children: [const BoardOne(), const BoardTow()],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           DotsPage(curnetpage: curnetpage),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           StartUpButton(curnetpage: curnetpage),
-          SizedBox(
+          const SizedBox(
             height: 32,
           ),
         ],

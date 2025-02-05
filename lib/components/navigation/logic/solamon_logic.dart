@@ -9,16 +9,16 @@ class SolamonLogic {
   static void bodybuilder(int index, HomeMainView widget) {
     switch (index) {
       case 0:
-        widget.body = HomeViwebody();
+        widget.body = const HomeViwebody();
 
       case 1:
-        widget.body = HomeProductsView();
+        widget.body = const HomeProductsView();
 
       case 2:
-        widget.body = ProductCart();
+        widget.body = const ProductCart();
 
       case 3:
-        widget.body = UserProfile();
+        widget.body = const UserProfile();
     }
   }
 }

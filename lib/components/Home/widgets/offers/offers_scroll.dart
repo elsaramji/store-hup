@@ -18,7 +18,7 @@ class OffersScroll extends StatelessWidget {
     return SliverToBoxAdapter(
         child: ListView.builder(
       physics: const NeverScrollableScrollPhysics(),
-      itemBuilder: (context, index) => OffersItem(),
+      itemBuilder: (context, index) => const OffersItem(),
       itemCount: 5,
     ));
   }
@@ -49,7 +49,7 @@ class OffersItem extends StatelessWidget {
                 top: 0,
                 right: 0,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     topRight: Radius.circular(8),
                     bottomRight: Radius.circular(8),
                   ),

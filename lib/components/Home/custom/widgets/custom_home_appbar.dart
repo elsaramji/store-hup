@@ -28,7 +28,7 @@ class CustomHomeAppBar extends StatelessWidget {
             style: TextsStyle.bold16.copyWith(color: AppColors.grayscale950),
           ),
           //#EEF8ED
-          trailing: NotificationIcon()),
+          trailing: const NotificationIcon()),
     );
   }
 }
