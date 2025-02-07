@@ -6,6 +6,10 @@ class Assets {
   /// assets/images/Apple.svg
   static const String assetsImagesApple = "assets/images/Apple.svg";
 
+  /// Assets for assetsImagesArrowSwap
+  /// assets/images/arrow-swap.png
+  static const String assetsImagesArrowSwap = "assets/images/arrow-swap.png";
+
   /// Assets for assetsImagesArrowback
   /// assets/images/arrowback.svg
   static const String assetsImagesArrowback = "assets/images/arrowback.svg";
@@ -38,6 +42,14 @@ class Assets {
   /// assets/images/boild/User.svg
   static const String assetsImagesBoildUser = "assets/images/boild/User.svg";
 
+  /// Assets for assetsImagesCalendar
+  /// assets/images/calendar.svg
+  static const String assetsImagesCalendar = "assets/images/calendar.svg";
+
+  /// Assets for assetsImagesCalories
+  /// assets/images/Calories.svg
+  static const String assetsImagesCalories = "assets/images/Calories.svg";
+
   /// Assets for assetsImagesCantaloupe
   /// assets/images/cantaloupe.png
   static const String assetsImagesCantaloupe = "assets/images/cantaloupe.png";
@@ -65,6 +77,10 @@ class Assets {
   /// Assets for assetsImagesLogo
   /// assets/images/logo.svg
   static const String assetsImagesLogo = "assets/images/logo.svg";
+
+  /// Assets for assetsImagesLotus
+  /// assets/images/lotus.svg
+  static const String assetsImagesLotus = "assets/images/lotus.svg";
 
   /// Assets for assetsImagesMango
   /// assets/images/mango.png
@@ -117,6 +133,10 @@ class Assets {
   /// Assets for assetsImagesProfile
   /// assets/images/profile.png
   static const String assetsImagesProfile = "assets/images/profile.png";
+
+  /// Assets for assetsImagesReviews
+  /// assets/images/reviews.svg
+  static const String assetsImagesReviews = "assets/images/reviews.svg";
 
   /// Assets for assetsImagesSearchNormal
   /// assets/images/search-normal.png

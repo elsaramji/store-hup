@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import '../../../core/custom/widgets/CustomHome/custom_Page_Appbar.dart';
 import '../../../core/styles/color_style.dart';
 import '../../../core/styles/font_style.dart';
-import '../custom/widgets/product_stream_biluder.dart';
+import '../../products/core/custom/product_grid_view.dart';
+import '../../products/core/custom/widget/product_stream_biluder.dart';
 
 class BestSellerViwe extends StatefulWidget {
   static const String id = 'BestSeller';
@@ -33,7 +34,11 @@ class _BestSellerViweState extends State<BestSellerViwe> {
                     TextsStyle.bold16.copyWith(color: AppColors.grayscale950),
               ),
             ),
-            const ProductsSreamBuilder(),
+            ProductsSreamBuilder(
+              dataBody: (snapshot) {
+                return ProductGrid(snapshot: snapshot);
+              },
+            ),
           ]),
         ),
       ),

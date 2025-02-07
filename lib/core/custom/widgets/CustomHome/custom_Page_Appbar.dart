@@ -10,27 +10,14 @@ import '../../../styles/font_style.dart';
 
 class CustomPageAppbar extends StatelessWidget {
   final String pagetitel;
-  const CustomPageAppbar({super.key, required this.pagetitel});
+  final bool? arrowback;
+  const CustomPageAppbar({super.key, required this.pagetitel, this.arrowback});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Container(
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(color: const Color(0xffF1F1F5), width: 1),
-            ),
-            child: CircleAvatar(
-              radius: 20,
-              backgroundColor: AppColors.white,
-              child: SizedBox(
-                  height: 20,
-                  width: 20,
-                  child: SvgPicture.asset(
-                    Assets.assetsImagesArrowback,
-                  )),
-            )),
+        Visibility(child: const Arrowback(), visible: arrowback ?? true),
         const Spacer(),
         Text(
           pagetitel,
@@ -40,5 +27,30 @@ class CustomPageAppbar extends StatelessWidget {
         const NotificationIcon(),
       ],
     );
+  }
+}
+
+class Arrowback extends StatelessWidget {
+  const Arrowback({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          border: Border.all(color: const Color(0xffF1F1F5), width: 1),
+        ),
+        child: CircleAvatar(
+          radius: 20,
+          backgroundColor: AppColors.white,
+          child: SizedBox(
+              height: 20,
+              width: 20,
+              child: SvgPicture.asset(
+                Assets.assetsImagesArrowback,
+              )),
+        ));
   }
 }

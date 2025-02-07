@@ -3,9 +3,10 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/custom/widgets/custom_prodcut_searchbar.dart';
+import '../../products/core/custom/product_grid_view.dart';
 import '../custom/widgets/custom_bast_seller.dart';
 import '../custom/widgets/custom_home_appbar.dart';
-import '../custom/widgets/product_stream_biluder.dart';
+import '../../products/core/custom/widget/product_stream_biluder.dart';
 import '../widgets/offers/offers_widget.dart';
 
 class HomeViwebody extends StatelessWidget {
@@ -44,7 +45,11 @@ class HomeViwebody extends StatelessWidget {
             //bast seller
             const BastSellerBar(),
             // Products
-            const ProductsSreamBuilder(),
+            ProductsSreamBuilder(
+              dataBody: (snapshot) {
+                return ProductGrid(snapshot: snapshot);
+              },
+            ),
           ])),
     );
   }
