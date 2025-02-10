@@ -7,7 +7,9 @@ class Product {
       quantity,
       price,
       description,
-      imageurl;
+      imageurl,
+      calories;
+      bool isOrganic;
   final String id;
 
   Product({
@@ -19,6 +21,8 @@ class Product {
     required this.description,
     required this.imageurl,
     required this.id,
+    required this.isOrganic,
+    required this.calories
   });
 
   factory Product.fromJson(Map<String, dynamic> json) {
@@ -31,6 +35,8 @@ class Product {
       description: json['description'],
       imageurl: json['imageurl'],
       id: json['id'],
+      isOrganic: json['isOrganic'],
+      calories: json['calories'],
     );
   }
 
@@ -43,7 +49,9 @@ class Product {
       'price': price,
       'description': description,
       'imageurl': imageurl,
-      'id': id
+      'id': id,
+      'isOrganic': isOrganic,
+      'calories': calories,
     };
   }
 }

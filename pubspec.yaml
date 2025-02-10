@@ -48,7 +48,7 @@ dependencies:
   get: ^4.6.6
   get_it: ^8.0.0
   google_sign_in: ^6.0.0
-  installed_apps: ^1.5.2
+  
   intl: any
   modal_progress_hud_nsn: ^0.5.1
   new_device_apps: ^1.0.0

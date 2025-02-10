@@ -1,0 +1,2 @@
+C:/Users/mahmo/OneDrive/Documents/elsaramji_repos/fruits_store_project/store_hup/android/app/.cxx/Debug/6g433f3z/x86/CMakeFiles/edit_cache.dir
+C:/Users/mahmo/OneDrive/Documents/elsaramji_repos/fruits_store_project/store_hup/android/app/.cxx/Debug/6g433f3z/x86/CMakeFiles/rebuild_cache.dir
