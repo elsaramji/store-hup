@@ -5,6 +5,7 @@ import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:store_hup/core/assets/assets_image.dart';
 import 'package:store_hup/core/styles/color_style.dart';
 
+// ignore: must_be_immutable
 class SolamonNavigationBar extends StatefulWidget {
   int selectedIndex = 0;
   Function(int index) onTap;

@@ -20,6 +20,7 @@ import '../../signin/views/Signin.dart';
 
 
 
+// ignore: must_be_immutable
 class ForgetPasswordViwe extends StatelessWidget {
   static const routeName = 'enterEmailView';
   late String email;
