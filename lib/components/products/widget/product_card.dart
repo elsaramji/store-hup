@@ -9,7 +9,7 @@ import '../../../core/custom/Style/custom_buttons_style.dart';
 import '../../../core/models/product.dart';
 import '../../../core/styles/color_style.dart';
 import '../../../core/styles/font_style.dart';
-import '../core/custom/views/product_details _view.dart';
+import '../core/product_details_view/views/product_details _view.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
