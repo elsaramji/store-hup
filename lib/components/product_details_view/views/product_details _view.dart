@@ -1,13 +1,13 @@
-// components/products/core/product_details_view/views/product_details _view.dart
+// components/product_details_view/views/product_details _view.dart
 
 import 'package:flutter/material.dart';
-import 'package:store_hup/components/products/core/product_details_view/views/widgets/discretion_box.dart';
-import 'package:store_hup/components/products/core/product_details_view/views/widgets/product_info_itmes.dart';
+import 'package:store_hup/components/product_details_view/widgets/discretion_box.dart';
+import 'package:store_hup/components/product_details_view/widgets/product_info_itmes.dart';
 import 'package:store_hup/core/custom/widgets/custom_button.dart';
 import 'package:store_hup/core/models/product.dart';
 
-import '../../../../../core/styles/color_style.dart';
-import 'widgets/product_basic_info.dart';
+import '../../../../core/styles/color_style.dart';
+import '../widgets/product_basic_info.dart';
 
 class ProductDetailsView extends StatefulWidget {
   static String routeName = '/ProductDetailsView';
@@ -20,7 +20,6 @@ class ProductDetailsView extends StatefulWidget {
 }
 
 class _ProductDetailsViewState extends State<ProductDetailsView> {
- 
   @override
   Widget build(BuildContext context) {
     return Scaffold(

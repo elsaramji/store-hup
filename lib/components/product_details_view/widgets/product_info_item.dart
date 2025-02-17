@@ -1,9 +1,9 @@
-// components/products/core/custom/views/widgets/product_info_item.dart
+// components/product_details_view/widgets/product_info_item.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../../../core/styles/color_style.dart';
-import '../../../../../../core/styles/font_style.dart';
+import '../../../../core/styles/color_style.dart';
+import '../../../../core/styles/font_style.dart';
 
 class InfoItem extends StatelessWidget {
   final String title, subtitle, imagePath;

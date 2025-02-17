@@ -1,9 +1,9 @@
-// components/products/core/custom/views/widgets/discretion_box.dart
+// components/product_details_view/widgets/discretion_box.dart
 import 'package:flutter/material.dart';
 
-import '../../../../../../core/models/product.dart';
-import '../../../../../../core/styles/color_style.dart';
-import '../../../../../../core/styles/font_style.dart';
+import '../../../../core/models/product.dart';
+import '../../../../core/styles/color_style.dart';
+import '../../../../core/styles/font_style.dart';
 
 class DescriptionBox extends StatefulWidget {
   const DescriptionBox({super.key, required this.product});

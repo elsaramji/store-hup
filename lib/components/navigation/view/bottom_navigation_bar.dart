@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:store_hup/components/Home/views/home_view.dart';
-import 'package:store_hup/components/cart/product_cart.dart';
+import 'package:store_hup/components/cart/views/product_cart_main_view.dart';
 import 'package:store_hup/components/products/view/home_products_view.dart';
 import 'package:store_hup/components/profile/user_profile.dart';
 
@@ -24,7 +24,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   List<String> goto = [
     HomeMainView.id,
     HomeProductsView.routeName,
-    ProductCart.routeName,
+    ProductCartMainView.routeName,
     UserProfile.routeName,
   ];
   @override

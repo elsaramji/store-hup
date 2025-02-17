@@ -1,20 +1,19 @@
 // components/Home/views/best_seller_viwe.dart
 import 'package:flutter/material.dart';
+import 'package:store_hup/components/product_details_view/product_grid_view.dart';
+import 'package:store_hup/core/custom/widgets/CustomHome/product_stream_biluder.dart';
 
 import '../../../core/custom/widgets/CustomHome/custom_Page_Appbar.dart';
 import '../../../core/styles/color_style.dart';
 import '../../../core/styles/font_style.dart';
-import '../../products/core/product_details_view/product_grid_view.dart';
-import '../../products/core/product_details_view/widget/product_stream_biluder.dart';
-
 class BestSellerViwe extends StatefulWidget {
   static const String id = 'BestSeller';
-
   const BestSellerViwe({Key? key}) : super(key: key);
-
   @override
   State<BestSellerViwe> createState() => _BestSellerViweState();
 }
+
+// ignore: must_be_immutable
 
 class _BestSellerViweState extends State<BestSellerViwe> {
   @override

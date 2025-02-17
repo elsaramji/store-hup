@@ -1,5 +1,4 @@
 // service/firebase/auth/auth_service.dart
-import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
@@ -7,7 +6,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import '../../../core/constant/keys.dart';
 import '../../../core/errors/failure.dart';
 import '../../../core/exceptions/auth_excaption.dart';
 import '../../../core/models/user_entity.dart';
@@ -64,8 +62,12 @@ class FirebaseAuthService extends AuthRepo {
           // sign in with email and password in firebase
           .signInWithEmailAndPassword(email: email, password: password);
 
+      users = Usermodel.fromFirebase(credential.user!);
+
+      saveUserId(users!);
+
       // return user credential from firebase
-      return right(Usermodel.fromFirebase(credential.user!));
+      return right(users!);
     }
     // catch firebase auth exception
     on FirebaseAuthException catch (e) {
@@ -107,7 +109,7 @@ class FirebaseAuthService extends AuthRepo {
       await UserOperationsFirestore.addusertofirestore(
         users!,
       );
-
+      saveUserId(users!);
       return right(Usermodel.fromFirebase(userCredential.user!));
     }
     // catch firebase auth exception
@@ -134,7 +136,7 @@ class FirebaseAuthService extends AuthRepo {
       // add user to fireStore database
       userStream = FirebaseAuth.instance.userChanges();
       UserOperationsFirestore.addusertofirestore(users!);
-
+      saveUserId(users!);
       // return user from firebase
       return right(users!);
     }
@@ -184,18 +186,12 @@ class FirebaseAuthService extends AuthRepo {
   }
 
   @override
-  saveUserdata(Usermodel user) {
-    log(jsonEncode(user.toMap()));
-    Preferences.setString(Keys.usersaved, jsonEncode(user.toMap()));
+  saveUserId(Usermodel user) {
+    Preferences.setString("uid", user.uid!);
   }
 
   @override
-  Usermodel getUserdata(
-    String key,
-  ) {
-    log(jsonDecode(Preferences.getStringfromShared(key) ?? " ").toString());
-    return Usermodel.fromMap(
-      jsonDecode(Preferences.getStringfromShared(key) ?? " "),
-    );
+  String? getUserId() {
+    return Preferences.getStringfromShared("uid");
   }
 }

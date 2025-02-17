@@ -2,7 +2,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:store_hup/components/products/core/product_details_view/views/product_details%20_view.dart';
+import 'package:store_hup/components/product_details_view/views/product_details%20_view.dart';
 
 import '../../../../core/models/product.dart';
 import '../../../../core/styles/color_style.dart';

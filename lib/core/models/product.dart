@@ -9,7 +9,7 @@ class Product {
       description,
       imageurl,
       calories;
-      bool isOrganic;
+  bool isOrganic;
   final String id;
 
   Product({
@@ -22,7 +22,7 @@ class Product {
     required this.imageurl,
     required this.id,
     required this.isOrganic,
-    required this.calories
+    required this.calories,
   });
 
   factory Product.fromJson(Map<String, dynamic> json) {

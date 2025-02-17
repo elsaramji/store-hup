@@ -1,7 +1,8 @@
 // components/navigation/logic/solamon_logic.dart
+import 'package:store_hup/components/cart/views/product_cart_main_view.dart';
+
 import '../../Home/views/home_view.dart';
 import '../../Home/views/home_view_body.dart';
-import '../../cart/product_cart.dart';
 import '../../products/view/home_products_view.dart';
 import '../../profile/user_profile.dart';
 
@@ -15,7 +16,7 @@ class SolamonLogic {
         widget.body = const HomeProductsView();
 
       case 2:
-        widget.body = const ProductCart();
+        widget.body = const ProductCartMainView();
 
       case 3:
         widget.body = const UserProfile();

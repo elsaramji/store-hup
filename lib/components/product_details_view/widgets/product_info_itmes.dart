@@ -1,9 +1,8 @@
-// components/products/core/product_details_view/views/widgets/product_info_itmes.dart
+// components/product_details_view/widgets/product_info_itmes.dart
 import 'package:flutter/material.dart';
-import 'package:store_hup/components/products/core/product_details_view/views/widgets/product_info_item.dart';
-
-import '../../../../../../core/assets/assets_image.dart';
-import '../../../../../../core/models/product.dart' show Product;
+import 'package:store_hup/components/product_details_view/widgets/product_info_item.dart';
+import '../../../../core/assets/assets_image.dart';
+import '../../../../core/models/product.dart' show Product;
 
 class ProductInfoItems extends StatelessWidget {
   const ProductInfoItems({

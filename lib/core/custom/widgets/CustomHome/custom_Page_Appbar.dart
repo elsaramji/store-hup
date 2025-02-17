@@ -10,8 +10,9 @@ import '../../../styles/font_style.dart';
 
 class CustomPageAppbar extends StatelessWidget {
   final String pagetitel;
-  final bool? arrowback;
-  const CustomPageAppbar({super.key, required this.pagetitel, this.arrowback});
+  final bool? arrowback, notification;
+  const CustomPageAppbar(
+      {super.key, required this.pagetitel, this.arrowback, this.notification});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,8 @@ class CustomPageAppbar extends StatelessWidget {
           style: TextsStyle.bold16.copyWith(color: AppColors.grayscale950),
         ),
         const Spacer(),
-        const NotificationIcon(),
+        Visibility(
+            visible: notification ?? true, child: const NotificationIcon()),
       ],
     );
   }

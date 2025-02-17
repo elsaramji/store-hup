@@ -19,6 +19,6 @@ abstract class AuthRepo {
   Future<Either<Failure, void>> forgetPassword({required String email});
   bool isLoggedIn();
   Future<Either<Failure, void>> signOut();
-  saveUserdata(Usermodel user);
-  getUserdata(String key);
+  saveUserId(Usermodel user);
+  getUserId();
 }

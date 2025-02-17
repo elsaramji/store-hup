@@ -4,12 +4,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
+import 'package:store_hup/components/product_details_view/views/product_details%20_view.dart';
 
 import '../../../core/custom/Style/custom_buttons_style.dart';
 import '../../../core/models/product.dart';
 import '../../../core/styles/color_style.dart';
 import '../../../core/styles/font_style.dart';
-import '../core/product_details_view/views/product_details _view.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;

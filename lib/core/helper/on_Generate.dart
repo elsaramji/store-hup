@@ -1,7 +1,7 @@
 // core/helper/on_Generate.dart
 
 import 'package:flutter/material.dart';
-import 'package:store_hup/components/cart/product_cart.dart';
+import 'package:store_hup/components/cart/views/product_cart_main_view.dart';
 import 'package:store_hup/components/products/view/home_products_view.dart';
 import 'package:store_hup/components/profile/user_profile.dart';
 
@@ -40,8 +40,9 @@ Route<dynamic>? ongenerate(RouteSettings setting) {
     case HomeProductsView.routeName:
       return MaterialPageRoute(builder: (context) => const HomeProductsView());
 
-    case ProductCart.routeName:
-      return MaterialPageRoute(builder: (context) => const ProductCart());
+    case ProductCartMainView.routeName:
+      return MaterialPageRoute(
+          builder: (context) => const ProductCartMainView());
 
     case UserProfile.routeName:
       return MaterialPageRoute(builder: (context) => const UserProfile());

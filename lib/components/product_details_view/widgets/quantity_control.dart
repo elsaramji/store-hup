@@ -1,26 +1,27 @@
-// components/products/core/custom/views/widgets/quantity_control.dart
+// components/product_details_view/widgets/quantity_control.dart
 
 import 'package:flutter/material.dart';
 
-import '../../../../../../core/custom/Style/custom_buttons_style.dart' show CustomButtonsStyle;
-import '../../../../../../core/styles/color_style.dart' show AppColors;
-import '../../../../../../core/styles/font_style.dart';
+import '../../../../core/custom/Style/custom_buttons_style.dart'
+    show CustomButtonsStyle;
+import '../../../../core/styles/color_style.dart' show AppColors;
+import '../../../../core/styles/font_style.dart';
 
 // ignore: must_be_immutable
 class QuantityController extends StatefulWidget {
-  
   QuantityController({
     super.key,
   });
 
-  int quantity = 1;
-  int get getquantity => quantity;
+  static num quantity = 1;
+
   @override
   State<QuantityController> createState() => _QuantityControllerState();
 }
 
 class _QuantityControllerState extends State<QuantityController> {
-  int quantity = 1;
+  num quantity = 1;
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -33,8 +34,10 @@ class _QuantityControllerState extends State<QuantityController> {
           ),
           onPressed: () {
             setState(() {
-              widget.quantity++;
+              quantity++;
             });
+
+            QuantityController.quantity = quantity;
           },
           icon: const Icon(
             Icons.add,
@@ -43,15 +46,16 @@ class _QuantityControllerState extends State<QuantityController> {
         ),
         const SizedBox(width: 16),
         Text(
-          "${widget.quantity}",
+          "${quantity}",
           style: TextsStyle.bold19.copyWith(color: AppColors.grayscale950),
         ),
         const SizedBox(width: 16),
         GestureDetector(
           onTap: () {
             setState(() {
-              widget.quantity--;
+              quantity--;
             });
+            QuantityController.quantity = quantity;
           },
           child: const Icon(
             Icons.remove,
@@ -62,4 +66,3 @@ class _QuantityControllerState extends State<QuantityController> {
     );
   }
 }
-

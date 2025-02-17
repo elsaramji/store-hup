@@ -1,12 +1,11 @@
 // components/Home/views/home_view_body.dart
 
 import 'package:flutter/material.dart';
-
+import 'package:store_hup/components/product_details_view/product_grid_view.dart';
+import 'package:store_hup/core/custom/widgets/CustomHome/product_stream_biluder.dart';
 import '../../../core/custom/widgets/custom_prodcut_searchbar.dart';
-import '../../products/core/product_details_view/product_grid_view.dart';
 import '../custom/widgets/custom_bast_seller.dart';
 import '../custom/widgets/custom_home_appbar.dart';
-import '../../products/core/product_details_view/widget/product_stream_biluder.dart';
 import '../widgets/offers/offers_widget.dart';
 
 class HomeViwebody extends StatelessWidget {
