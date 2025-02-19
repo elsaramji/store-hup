@@ -1,4 +1,4 @@
-// components/cart/core/state_management/cart_state.dart
+// components/cart/core/state_management/cart_state/cart_state.dart
 part of 'cart_cubit.dart';
 
 @immutable
@@ -16,6 +16,16 @@ class CartAdded extends CartState {
 class CartRemoved extends CartState {
   final CartItemEntity cart;
   CartRemoved({required this.cart});
+}
+
+class CartUpdated extends CartState {
+  final CartItemEntity cart;
+  CartUpdated({required this.cart});
+}
+
+class CartLoaded extends CartState {
+  final List<CartItemEntity> carts;
+  CartLoaded({required this.carts});
 }
 
 class CartError extends CartState {

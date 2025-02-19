@@ -5,7 +5,6 @@ import 'package:store_hup/components/product_details_view/widgets/discretion_box
 import 'package:store_hup/components/product_details_view/widgets/product_info_itmes.dart';
 import 'package:store_hup/core/custom/widgets/custom_button.dart';
 import 'package:store_hup/core/models/product.dart';
-
 import '../../../../core/styles/color_style.dart';
 import '../widgets/product_basic_info.dart';
 

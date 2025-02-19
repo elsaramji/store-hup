@@ -154,6 +154,10 @@ class Assets {
   /// assets/images/sutrawprary.svg
   static const String assetsImagesSutrawprary = "assets/images/sutrawprary.svg";
 
+  /// Assets for assetsImagesTrash
+  /// assets/images/trash.png
+  static const String assetsImagesTrash = "assets/images/trash.png";
+
   /// Assets for assetsImagesWatermelon
   /// assets/images/watermelon.png
   static const String assetsImagesWatermelon = "assets/images/watermelon.png";

@@ -16,7 +16,7 @@ void setupGetIt() {
     getIt.registerSingleton<FirebaseAuthService>(FirebaseAuthService());
     getIt.registerSingleton<FirestoreService>(FirestoreService());
     getIt.registerSingleton<FirebaseDataService>(FirebaseDataService());
-    getIt.registerSingleton<CartStoreRepo>(CartStoreRepo());
+    getIt.registerSingleton<CartFirebaseRepo>(CartFirebaseRepo());
     getIt.registerSingleton<Preferences>(Preferences());
   } catch (e) {
     log(e.toString());

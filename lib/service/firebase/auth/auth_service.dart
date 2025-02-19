@@ -192,6 +192,6 @@ class FirebaseAuthService extends AuthRepo {
 
   @override
   String? getUserId() {
-    return Preferences.getStringfromShared("uid");
+    return FirebaseAuth.instance.currentUser?.uid;
   }
 }

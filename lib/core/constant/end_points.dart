@@ -2,4 +2,5 @@
 class EndPoints {
   static const String usersEndPoints = 'users';
   static const String productsEndPoints = '/products';
+  static const String cartEndPoints = '/cart';
 }

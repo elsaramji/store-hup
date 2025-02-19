@@ -1,22 +1,26 @@
 // components/products/widget/product_card.dart
 // components/products_management/widget/product_card.dart
+// ignore_for_file: dead_code
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:store_hup/components/product_details_view/views/product_details%20_view.dart';
+import 'package:store_hup/core/custom/Style/custom_buttons_style.dart';
 
-import '../../../core/custom/Style/custom_buttons_style.dart';
 import '../../../core/models/product.dart';
 import '../../../core/styles/color_style.dart';
 import '../../../core/styles/font_style.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
+  final Function()? add;
 
-  const ProductCard({
+  ProductCard({
     super.key,
     required this.product,
+    required this.add,
   });
 
   @override
@@ -29,7 +33,7 @@ class ProductCard extends StatelessWidget {
         aspectRatio: 8 / 16,
         child: Container(
             padding: const EdgeInsets.all(8),
-            color: AppColors.grayscale50.withOpacity(0.3),
+            color: AppColors.grayscale50.withAlpha((255 * 0.3.toInt())),
             child: Stack(children: <Widget>[
               Positioned.fill(
                 child: Column(
@@ -63,7 +67,7 @@ class ProductCard extends StatelessWidget {
                           ]),
                         ),
                         trailing: IconButton(
-                          onPressed: () {},
+                          onPressed: add,
                           icon: const Icon(
                             Icons.add,
                             color: AppColors.white,

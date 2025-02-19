@@ -1,12 +1,11 @@
 // components/product_details_view/widgets/product_basic_info.dart
 
 import 'package:flutter/material.dart';
-import 'package:store_hup/components/product_details_view/widgets/quantity_control.dart';
 import 'package:store_hup/components/products/widget/product_card.dart';
+
 import '../../../../core/models/product.dart';
 import '../../../../core/styles/color_style.dart';
 import '../../../../core/styles/font_style.dart';
-
 
 class ImagePorductInfo extends StatelessWidget {
   const ImagePorductInfo({
@@ -59,7 +58,6 @@ class BasicProductInfo extends StatelessWidget {
           ),
         ]),
         const Spacer(),
-        QuantityController()
       ],
     );
   }
