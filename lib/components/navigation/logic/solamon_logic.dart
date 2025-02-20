@@ -16,7 +16,7 @@ class SolamonLogic {
         widget.body = const HomeProductsView();
 
       case 2:
-        widget.body = const ProductCartMainView();
+        widget.body = ProductCartMainView();
 
       case 3:
         widget.body = const UserProfile();
