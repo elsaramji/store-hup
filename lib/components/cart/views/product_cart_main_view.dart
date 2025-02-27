@@ -4,13 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:store_hup/components/cart/core/models/cart_item_entity.dart';
-import 'package:store_hup/components/cart/core/services/firebase/data/cart_store_repo.dart';
 import 'package:store_hup/components/cart/core/state_management/cart_state/cart_cubit.dart';
 import 'package:store_hup/components/cart/views/widgets/cart_item.dart';
-import 'package:store_hup/core/custom/widgets/CustomHome/custom_Page_Appbar.dart';
 import 'package:store_hup/core/custom/widgets/alert_error.dart';
 import 'package:store_hup/core/custom/widgets/custom_button.dart';
-import 'package:store_hup/core/injection/Git_it.dart';
 import 'package:store_hup/core/styles/color_style.dart';
 import 'package:store_hup/core/styles/font_style.dart';
 
@@ -29,19 +26,25 @@ class _ProductCartMainViewState extends State<ProductCartMainView> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) =>
-            CartCubit(cartStoreRepo: getIt<CartFirebaseRepo>()),
+        create: (context) => CartCubit(),
         child: SafeArea(
           child: Stack(
             children: [
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 16),
                 child: CustomScrollView(slivers: [
-                  const SliverToBoxAdapter(
-                      child: CustomPageAppbar(
-                    pagetitel: "السلة",
-                    notification: false,
-                  )),
+                  SliverAppBar(
+                    title:
+                        const Text("سلة المشتريات", style: TextsStyle.bold16),
+                    centerTitle: true,
+                    pinned: true,
+                    leading: IconButton(
+                      icon: const Icon(Icons.arrow_back),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ),
                   StreamBuilder(
                       stream: context.read<CartCubit>().getCart(),
                       builder: (context, snapshot) {
@@ -50,13 +53,21 @@ class _ProductCartMainViewState extends State<ProductCartMainView> {
                           return SliverList(
                             delegate: SliverChildListDelegate(
                               [
+                                const SizedBox(
+                                  height: 16,
+                                ),
                                 Center(
-                                    child: Text(
-                                  "لديك ${snapshot.data!.docs.length} من المنتجات",
-                                  style: TextsStyle.regular16
-                                      .copyWith(color: AppColors.green700),
-                                )),
+                                  child: Text(
+                                    "لديك ${snapshot.data!.docs.length} منتجات",
+                                    style: TextsStyle.regular16.copyWith(
+                                        color: AppColors.primaryColor),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 16,
+                                ),
                                 ListView.builder(
+                                    padding: const EdgeInsets.only(bottom: 64),
                                     physics:
                                         const NeverScrollableScrollPhysics(),
                                     shrinkWrap: true,
@@ -67,7 +78,7 @@ class _ProductCartMainViewState extends State<ProductCartMainView> {
                                             snapshot.data!.docs[index].data()
                                                 as Map<String, dynamic>),
                                       );
-                                    })
+                                    }),
                               ],
                             ),
                           );

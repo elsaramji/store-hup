@@ -6,15 +6,15 @@ import 'package:store_hup/components/futures/onboarding/view/view_tow.dart';
 import '../widgets/dots.dart';
 import '../widgets/startnow_button.dart';
 
-class MainBoards extends StatefulWidget {
+class OnboardView extends StatefulWidget {
   static const String route = "/onBoarding";
-  const MainBoards({super.key});
+  const OnboardView({super.key});
 
   @override
-  State<MainBoards> createState() => _MainBoardsState();
+  State<OnboardView> createState() => _OnboardViewState();
 }
 
-class _MainBoardsState extends State<MainBoards> {
+class _OnboardViewState extends State<OnboardView> {
   late PageController pageController;
   int curnetpage = 0;
   void initState() {

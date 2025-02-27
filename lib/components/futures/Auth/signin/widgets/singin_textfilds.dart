@@ -51,9 +51,8 @@ class _SigninFormState extends State<SigninForm> {
             onPressed: () {
               if (formkey.currentState!.validate()) {
                 formkey.currentState!.save();
-                BlocProvider.of<SigninCubit>(context)
-                    .signInWithemailandpassword(
-                        email: email, password: password);
+                context.read<SigninCubit>().signInWithemailandpassword(
+                    email: email, password: password);
               } else {
                 setState(() {
                   autovalidateMode = AutovalidateMode.always;

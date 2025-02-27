@@ -1,8 +1,7 @@
 // service/state_management/sginin_cubit/siginin_cubit_state.dart
 part of 'siginin_cubit_cubit.dart';
 
-@immutable
-abstract class SigninState {}
+class SigninState {}
 
 class SigininInitial extends SigninState {}
 

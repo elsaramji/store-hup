@@ -1,6 +1,5 @@
 // service/state_management/sginin_cubit/siginin_cubit_cubit.dart
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
 import 'package:store_hup/core/injection/Git_it.dart';
 
 import '../../../core/models/user_entity.dart';
@@ -24,6 +23,7 @@ class SigninCubit extends Cubit<SigninState> {
   }
 
   Future<void> signinWithGoogle() async {
+    emit(SigninLoading());
     final result = await auth.signinWithGoogle();
     result.fold((l) {
       emit(SigninError(l.message));

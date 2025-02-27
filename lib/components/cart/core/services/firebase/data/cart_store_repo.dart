@@ -7,11 +7,11 @@ import 'package:store_hup/core/injection/Git_it.dart';
 import 'package:store_hup/service/firebase/auth/auth_service.dart';
 
 class CartFirebaseRepo {
+  CartFirebaseRepo();
   final CollectionReference firebase_collaction = FirebaseFirestore.instance
       .collection(EndPoints.usersEndPoints)
       .doc(getIt<FirebaseAuthService>().getUserId())
       .collection(EndPoints.cartEndPoints);
-  CartFirebaseRepo();
   void uploading(CartItemEntity cartItemEntity) async {
     await firebase_collaction
         .doc(cartItemEntity.code_item)

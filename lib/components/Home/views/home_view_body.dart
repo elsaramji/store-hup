@@ -1,8 +1,14 @@
 // components/Home/views/home_view_body.dart
+// components/Home/views/home_view_body.dart
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:store_hup/components/product_details_view/product_grid_view.dart';
-import 'package:store_hup/core/custom/widgets/CustomHome/product_stream_biluder.dart';
+import 'package:store_hup/components/products/state_management/get_product_cubit.dart';
+import 'package:store_hup/core/custom/widgets/alert_error.dart';
+import 'package:store_hup/core/styles/color_style.dart';
+
 import '../../../core/custom/widgets/custom_prodcut_searchbar.dart';
 import '../custom/widgets/custom_bast_seller.dart';
 import '../custom/widgets/custom_home_appbar.dart';
@@ -15,41 +21,60 @@ class HomeViwebody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 16),
-          height: MediaQuery.sizeOf(context).height,
-          width: MediaQuery.sizeOf(context).width,
-          child: CustomScrollView(slivers: [
-            const SliverToBoxAdapter(child: SizedBox(height: 16)),
-            const CustomHomeAppBar(
-              userName: "Mahmoud",
-            ),
-            const SliverToBoxAdapter(child: SizedBox(height: 12)),
-            CustomProductSearchBar(
-              onChanged: (value) {},
-            ),
-            const SliverToBoxAdapter(child: SizedBox(height: 12)),
-            // body Section
-            // offers
-            SliverToBoxAdapter(
-                child: AspectRatio(
-              aspectRatio: 342 / 158,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => const OffersItem(),
-                itemCount: 5,
-              ),
-            )),
-            //bast seller
-            const BastSellerBar(),
-            // Products
-            ProductsSreamBuilder(
-              dataBody: (snapshot) {
-                return ProductGrid(snapshot: snapshot);
-              },
-            ),
-          ])),
+    return BlocProvider(
+      create: (context) => GetProductCubit(),
+      child: Builder(
+        builder: (context) {
+          context.read<GetProductCubit>().getProduct();
+          return BlocBuilder<GetProductCubit, GetProductState>(
+            builder: (context, state) {
+              return SafeArea(
+                child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 16),
+                    height: MediaQuery.sizeOf(context).height,
+                    width: MediaQuery.sizeOf(context).width,
+                    child: CustomScrollView(slivers: [
+                      const SliverToBoxAdapter(child: SizedBox(height: 16)),
+                      const CustomHomeAppBar(
+                        userName: "Mahmoud",
+                      ),
+                      const SliverToBoxAdapter(child: SizedBox(height: 12)),
+                      CustomProductSearchBar(
+                        onChanged: (value) {},
+                      ),
+                      const SliverToBoxAdapter(child: SizedBox(height: 12)),
+                      // body Section
+                      // offers
+                      SliverToBoxAdapter(
+                          child: AspectRatio(
+                        aspectRatio: 342 / 158,
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) => const OffersItem(),
+                          itemCount: 5,
+                        ),
+                      )),
+                      //bast seller
+                      const BastSellerBar(),
+                      // Products
+                      state is GetProductLoading
+                          ? const SliverFillRemaining(
+                              child: Center(
+                                  child: SpinKitChasingDots(
+                                color: AppColors.green1600,
+                              )),
+                            )
+                          : state is GetProductSuccess
+                              ? ProductGrid(
+                                  products: state.products,
+                                )
+                              : const AlertError(),
+                    ])),
+              );
+            },
+          );
+        },
+      ),
     );
   }
 }

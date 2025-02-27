@@ -1,12 +1,12 @@
 // components/futures/Auth/signin/views/Signin.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:store_hup/components/futures/Auth/signin/widgets/main_viwe.dart';
 
 import '../../../../../core/custom/widgets/custom_Appbar.dart';
-import '../../../../../core/custom/widgets/custom_loadingProgress.dart';
 import '../../../../../service/state_management/sginin_cubit/siginin_cubit_cubit.dart';
 import '../logics/listener.dart';
-import '../widgets/main_viwe.dart';
 
 class Signin extends StatelessWidget {
   static const route = '/login_view';
@@ -24,13 +24,13 @@ class Signin extends StatelessWidget {
         create: (context) => SigninCubit(),
         child: Builder(builder: (context) {
           return BlocConsumer<SigninCubit, SigninState>(
-            listener: (context, state) {
-              signinlistener(state, context);
+            listener: (context, state) async {
+              await signinlistener(state, context);
             },
             builder: (context, state) {
-              return CustomLoadingProgress(
-                  isOn: state is SigninLoading ? true : false,
-                  child: const SinginMainViwe());
+              return state is SigninLoading
+                  ? const Center(child: SpinKitChasingDots(color: Colors.green))
+                  : const SinginMainViwe();
             },
           );
         }),

@@ -18,8 +18,8 @@ Route<dynamic>? ongenerate(RouteSettings setting) {
   switch (setting.name) {
     case Splash.route:
       return MaterialPageRoute(builder: (context) => const Splash());
-    case MainBoards.route:
-      return MaterialPageRoute(builder: (context) => const MainBoards());
+    case OnboardView.route:
+      return MaterialPageRoute(builder: (context) => const OnboardView());
 
     case Signin.route:
       return MaterialPageRoute(builder: (context) => const Signin());

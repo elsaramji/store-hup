@@ -9,8 +9,8 @@ import 'package:store_hup/core/custom/widgets/custom_errors_massage.dart';
 part 'cart_state.dart';
 
 class CartCubit extends Cubit<CartState> {
-  CartFirebaseRepo cartStoreRepo;
-  CartCubit({required this.cartStoreRepo}) : super(CartInitial());
+  CartFirebaseRepo cartStoreRepo = CartFirebaseRepo();
+  CartCubit() : super(CartInitial());
 
   addToCart(CartItemEntity cart, BuildContext context) {
     try {

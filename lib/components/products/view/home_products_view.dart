@@ -1,13 +1,17 @@
 // components/products/view/home_products_view.dart
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:store_hup/components/product_details_view/product_grid_view.dart';
-import 'package:store_hup/core/custom/widgets/CustomHome/product_stream_biluder.dart';
+import 'package:store_hup/components/products/state_management/get_product_cubit.dart';
+import 'package:store_hup/components/products/widget/products_tap/scrrolled_products%20_bar.dart';
 import 'package:store_hup/core/custom/widgets/CustomHome/custom_prodcut_searchbar.dart';
+import 'package:store_hup/core/custom/widgets/alert_error.dart';
+
 import '../../../core/assets/assets_image.dart';
 import '../../../core/custom/widgets/CustomHome/custom_Page_Appbar.dart';
 import '../../../core/styles/color_style.dart';
 import '../../../core/styles/font_style.dart';
-import '../widget/products_tap/scrrolled_products _bar.dart';
 
 class HomeProductsView extends StatelessWidget {
   const HomeProductsView({super.key});
@@ -19,33 +23,53 @@ class HomeProductsView extends StatelessWidget {
     //serch text field
     //custom vertical list of products
     //best selling products
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16),
-      child: SafeArea(
-        child: CustomScrollView(slivers: [
-          const SliverToBoxAdapter(
-            child: CustomPageAppbar(
-              pagetitel: "المنتجات",
-              arrowback: false,
-            ),
-          ),
-          const SliverPadding(padding: EdgeInsets.symmetric(vertical: 16)),
-          CustomProductSearchBar(onChanged: (value) {}),
-          const SliverPadding(padding: EdgeInsets.symmetric(vertical: 4)),
-          const SliverToBoxAdapter(
-            child: ProductsSortBar(),
-          ),
-          const SliverPadding(padding: EdgeInsets.symmetric(vertical: 8)),
-          ProductsSreamBuilder(
-            dataBody: (snapshot) {
-              return ScrolledProductsBar(snapshot: snapshot);
-            },
-          ),
-          ProductsSreamBuilder(dataBody: (snapshot) {
-            return ProductGrid(snapshot: snapshot);
-          })
-        ]),
-      ),
+    return BlocProvider(
+      create: (context) => GetProductCubit(),
+      child: Builder(builder: (context) {
+        context.read<GetProductCubit>().getProduct();
+        return BlocBuilder<GetProductCubit, GetProductState>(
+          builder: (context, state) {
+            return Container(
+              margin: const EdgeInsets.symmetric(horizontal: 16),
+              child: SafeArea(
+                child: CustomScrollView(slivers: [
+                  const SliverToBoxAdapter(
+                    child: CustomPageAppbar(
+                      pagetitel: "المنتجات",
+                      arrowback: false,
+                    ),
+                  ),
+                  const SliverPadding(
+                      padding: EdgeInsets.symmetric(vertical: 16)),
+                  CustomProductSearchBar(onChanged: (value) {}),
+                  const SliverPadding(
+                      padding: EdgeInsets.symmetric(vertical: 4)),
+                  state is GetProductSuccess
+                      ? ScrolledProductsBar(
+                          snapshot: state.products,
+                        )
+                      : const SliverToBoxAdapter(
+                          child: SizedBox(height: 0),
+                        ),
+                  const SliverPadding(
+                      padding: EdgeInsets.symmetric(vertical: 8)),
+                  state is GetProductLoading
+                      ? const SliverFillRemaining(
+                          child: Center(
+                            child: SpinKitFadingCircle(
+                              color: AppColors.primaryColor,
+                            ),
+                          ),
+                        )
+                      : state is GetProductSuccess
+                          ? ProductGrid(products: state.products)
+                          : const AlertError()
+                ]),
+              ),
+            );
+          },
+        );
+      }),
     );
   }
 }

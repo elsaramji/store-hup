@@ -1,20 +1,22 @@
 // components/futures/Auth/signin/logics/listener.dart
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:store_hup/components/Home/views/home_view.dart';
+import 'package:store_hup/components/cart/core/services/firebase/data/cart_store_repo.dart';
 import 'package:store_hup/core/injection/Git_it.dart';
+import 'package:store_hup/service/firebase/auth/auth_service.dart';
 
 import '../../../../../core/custom/widgets/custom_errors_massage.dart';
-import '../../../../../service/firebase/auth/auth_service.dart';
 import '../../../../../service/state_management/sginin_cubit/siginin_cubit_cubit.dart';
-import '../../../../Home/views/home_view.dart';
 
-void signinlistener(SigninState state, BuildContext context) {
+Future<void> signinlistener(SigninState state, BuildContext context) async {
+  bool islogged = await getIt<FirebaseAuthService>().isLoggedIn();
+
   if (state is SigninError) {
     ErrorsMassage.errorsBar(context, state.error);
-  }
-  if (state is SigninSuccess) {
-    if (getIt<FirebaseAuthService>().isLoggedIn()) {
-      Navigator.pushReplacementNamed(context, HomeMainView.id);
-    }
-    ErrorsMassage.errorsBar(context, 'تم تسجيل الدخول بنجاح');
+  } else if (state is SigninSuccess && islogged) {
+    await Future.delayed(const Duration(seconds: 1));
+    Get.off(HomeMainView());
   }
 }

@@ -25,6 +25,7 @@ void main() async {
   await Preferences.init();
 
   setupGetIt();
+  
   runApp(const FruitHup());
 }
 

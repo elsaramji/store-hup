@@ -23,6 +23,10 @@ class Preferences {
     return await _incetans.setString(key, value);
   }
 
+  Future<String?> getUid() async {
+    return await _incetans.getString("uid");
+  }
+
   static String? getStringfromShared(String key) {
     log(key);
     log(_incetans.getString(key).toString());

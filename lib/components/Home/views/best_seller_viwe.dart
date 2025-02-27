@@ -1,11 +1,10 @@
 // components/Home/views/best_seller_viwe.dart
 import 'package:flutter/material.dart';
-import 'package:store_hup/components/product_details_view/product_grid_view.dart';
-import 'package:store_hup/core/custom/widgets/CustomHome/product_stream_biluder.dart';
 
 import '../../../core/custom/widgets/CustomHome/custom_Page_Appbar.dart';
 import '../../../core/styles/color_style.dart';
 import '../../../core/styles/font_style.dart';
+
 class BestSellerViwe extends StatefulWidget {
   static const String id = 'BestSeller';
   const BestSellerViwe({Key? key}) : super(key: key);
@@ -33,11 +32,7 @@ class _BestSellerViweState extends State<BestSellerViwe> {
                     TextsStyle.bold16.copyWith(color: AppColors.grayscale950),
               ),
             ),
-            ProductsSreamBuilder(
-              dataBody: (snapshot) {
-                return ProductGrid(snapshot: snapshot);
-              },
-            ),
+          
           ]),
         ),
       ),

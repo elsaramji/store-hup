@@ -1,5 +1,4 @@
 // components/product_details_view/product_grid_view.dart
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_hup/components/cart/core/models/cart_item_entity.dart';
@@ -9,11 +8,11 @@ import 'package:store_hup/components/products/widget/product_card.dart';
 import '../../../core/models/product.dart';
 
 class ProductGrid extends StatefulWidget {
-  final AsyncSnapshot<QuerySnapshot> snapshot;
+  final List<Map<String, dynamic>> products;
   bool check_state = false;
   ProductGrid({
     super.key,
-    required this.snapshot,
+    required this.products,
   });
 
   @override
@@ -39,19 +38,16 @@ class _ProductGridState extends State<ProductGrid> {
             crossAxisSpacing: 16,
             childAspectRatio: 163 / 214,
           ),
-          itemCount: widget.snapshot.data!.docs.length,
+          itemCount: widget.products.length,
           itemBuilder: (context, index) {
             return ProductCard(
                 add: () {
                   context.read<CartCubit>().addToCart(
                       CartItemEntity(
-                          product: Product.fromJson(
-                              widget.snapshot.data!.docs[index].data()
-                                  as Map<String, dynamic>)),
+                          product: Product.fromJson(widget.products[index])),
                       context);
                 },
-                product: Product.fromJson(widget.snapshot.data!.docs[index]
-                    .data() as Map<String, dynamic>));
+                product: Product.fromJson(widget.products[index]));
           }),
     );
   }

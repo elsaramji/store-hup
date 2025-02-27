@@ -1,11 +1,11 @@
 // service/state_management/forgetpassword_cubit/forgetpassword_cubit.dart
 import 'package:bloc/bloc.dart';
-
 import 'package:meta/meta.dart';
+import 'package:store_hup/core/injection/Git_it.dart';
+import 'package:store_hup/service/firebase/data/firebaseDataService.dart';
 
 import '../../../core/constant/end_points.dart';
 import '../../firebase/auth/auth_service.dart';
-import '../../firebase/data/firestore_service.dart';
 
 part 'forgetpassword_state.dart';
 
@@ -15,7 +15,7 @@ class ForgetpasswordCubit extends Cubit<ForgetpasswordState> {
 
   void forgetPassword(String email) async {
     emit(ForgetpasswordLoading());
-    final bool email_status = await FirestoreService()
+    final bool email_status = await getIt<FirebaseDataService>()
         .isnotExist(path: EndPoints.usersEndPoints, email: email);
     try {
       if (!email_status) {

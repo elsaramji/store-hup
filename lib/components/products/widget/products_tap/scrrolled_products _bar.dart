@@ -1,5 +1,4 @@
 // components/products/widget/products_tap/scrrolled_products _bar.dart
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:store_hup/components/product_details_view/views/product_details%20_view.dart';
@@ -10,7 +9,7 @@ import '../product_card.dart';
 
 class ScrolledProductsBar extends StatelessWidget {
   const ScrolledProductsBar({super.key, required this.snapshot});
-  final AsyncSnapshot<QuerySnapshot> snapshot;
+  final List<Map<String, dynamic>> snapshot;
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +18,9 @@ class ScrolledProductsBar extends StatelessWidget {
         aspectRatio: 356 / 89,
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
-          itemCount: snapshot.data!.docs.length,
+          itemCount: snapshot.length,
           itemBuilder: (context, index) {
-            final product = Product.fromJson(
-                snapshot.data!.docs[index].data() as Map<String, dynamic>);
+            final product = Product.fromJson(snapshot[index]);
             return GestureDetector(
               onTap: () {
                 Get.to(ProductDetailsView(product: product));

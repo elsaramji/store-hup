@@ -9,16 +9,15 @@ import 'package:google_sign_in/google_sign_in.dart';
 import '../../../core/errors/failure.dart';
 import '../../../core/exceptions/auth_excaption.dart';
 import '../../../core/models/user_entity.dart';
-import '../../auth/auth_repo.dart';
 import '../../database/presence.dart';
 import '../handle/database_operations/users_operations.dart';
 
 // Auth Service Class For Firebase
-class FirebaseAuthService extends AuthRepo {
+class FirebaseAuthService {
   Usermodel? users;
   Stream<User?>? userStream;
   // sign up with email and password
-  @override
+
   Future<Either<Failure, Usermodel>> createEmailWithemailandpassword(
       {required String email,
       required String password,
@@ -53,7 +52,7 @@ class FirebaseAuthService extends AuthRepo {
   }
 
   // sign in with email and password
-  @override
+
   Future<Either<Failure, Usermodel>> signInWithEmailandpassword(
       {required String email, required String password}) async {
     try {
@@ -61,14 +60,12 @@ class FirebaseAuthService extends AuthRepo {
       final credential = await FirebaseAuth.instance
           // sign in with email and password in firebase
           .signInWithEmailAndPassword(email: email, password: password);
-
       users = Usermodel.fromFirebase(credential.user!);
-
-      saveUserId(users!);
-
+      await isLoggedIn();
       // return user credential from firebase
       return right(users!);
     }
+
     // catch firebase auth exception
     on FirebaseAuthException catch (e) {
       log("firebase auth exception ${e.code}");
@@ -85,7 +82,7 @@ class FirebaseAuthService extends AuthRepo {
   }
 
   // sign in with google
-  @override
+
   Future<Either<Failure, Usermodel>> signinWithGoogle() async {
     try {
       // sign in with google in firebase
@@ -105,11 +102,11 @@ class FirebaseAuthService extends AuthRepo {
           await FirebaseAuth.instance.signInWithCredential(credential);
       users = Usermodel.fromFirebase(userCredential.user!);
       // add user to fireStore database
-      userStream = FirebaseAuth.instance.userChanges();
+      // userStream = FirebaseAuth.instance.userChanges();
       await UserOperationsFirestore.addusertofirestore(
         users!,
       );
-      saveUserId(users!);
+
       return right(Usermodel.fromFirebase(userCredential.user!));
     }
     // catch firebase auth exception
@@ -121,7 +118,7 @@ class FirebaseAuthService extends AuthRepo {
   }
 
   // sign in with facebook
-  @override
+
   Future<Either<Failure, Usermodel>> signinWithFacebook() async {
     try {
       // sign in with facebook
@@ -151,12 +148,11 @@ class FirebaseAuthService extends AuthRepo {
   }
 
   // sign in with apple for apple device only
-  @override
+
   Future<Either<Failure, Usermodel>> signinWithApple() async {
     return left(Failure("سوف يتم تفعيله في وقت لاحق"));
   }
 
-  @override
   Future<Either<Failure, void>> forgetPassword({required String email}) async {
     try {
       return right(
@@ -168,13 +164,19 @@ class FirebaseAuthService extends AuthRepo {
     }
   }
 
-  @override
-  bool isLoggedIn() {
-    return FirebaseAuth.instance.currentUser != null;
+  Future<bool> isLoggedIn() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      users = Usermodel.fromFirebase(user);
+      getUserId();
+      return true;
+    } else {
+      return false;
+    }
   }
 
   // sign out
-  @override
+
   Future<Either<Failure, void>> signOut() async {
     try {
       return right(await FirebaseAuth.instance.signOut());
@@ -185,13 +187,11 @@ class FirebaseAuthService extends AuthRepo {
     }
   }
 
-  @override
   saveUserId(Usermodel user) {
     Preferences.setString("uid", user.uid!);
   }
 
-  @override
-  String? getUserId() {
-    return FirebaseAuth.instance.currentUser?.uid;
+  String getUserId() {
+    return FirebaseAuth.instance.currentUser!.uid;
   }
 }
