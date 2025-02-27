@@ -13,9 +13,10 @@
 [🔗 اضغط هنا لتجربة التطبيق](https://appetize.io/app/b_hqq64d4w6r6h5pnth5anjs6aau)  
 
 ## 📸 **لقطات من التطبيق**  
-![Fruit Store App](https://via.placeholder.com/600x300?text=Fruit+Store+App)  
+![Fruit Store App](https://github.com/user-attachments/assets/6e15f823-4062-4b8c-81dc-f717e1f6408e)
 
 ## 🛠 **التقنيات المستخدمة**  
+
 - **Flutter** 🏗  
 - **Dart** 🚀  
 - **Firebase** 🔥 (لإدارة البيانات والمصادقة)  
