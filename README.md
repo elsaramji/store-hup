@@ -1,16 +1,26 @@
-# store_hup
+# 🍎 Fruit Store App  
 
-A new Flutter project.
+**Fruit Store App** هو تطبيق لبيع الفواكه الطازجة عبر الإنترنت، حيث يمكنك تصفح الفواكه، إضافتها إلى السلة، وإتمام عملية الشراء بسهولة.  
 
-## Getting Started
+## ✨ **مميزات التطبيق**  
+✅ تصفح قائمة متنوعة من الفواكه الطازجة 🍊🍌🍓  
+✅ إضافة المنتجات إلى عربة التسوق 🛒  
+✅ تجربة سلسة وسريعة مع واجهة مستخدم جذابة 🎨  
+✅ دعم طرق دفع متعددة 💳  
 
-This project is a starting point for a Flutter application.
+## 🚀 **جرب التطبيق الآن!**  
+يمكنك تجربة التطبيق عبر هذا الرابط:  
+[🔗 اضغط هنا لتجربة التطبيق](https://appetize.io/app/b_hqq64d4w6r6h5pnth5anjs6aau)  
 
-A few resources to get you started if this is your first Flutter project:
+## 📸 **لقطات من التطبيق**  
+![Fruit Store App](https://via.placeholder.com/600x300?text=Fruit+Store+App)  
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🛠 **التقنيات المستخدمة**  
+- **Flutter** 🏗  
+- **Dart** 🚀  
+- **Firebase** 🔥 (لإدارة البيانات والمصادقة)  
+- **REST API** 🌍  
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+👨‍💻 **تم التطوير بواسطة كودي**  
