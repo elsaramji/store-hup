@@ -1,0 +1,2 @@
+C:/Users/mahmo/OneDrive/Documents/elsaramji_repos/fruits_store_project/store_hup/android/app/.cxx/RelWithDebInfo/436i4v2i/x86/CMakeFiles/edit_cache.dir
+C:/Users/mahmo/OneDrive/Documents/elsaramji_repos/fruits_store_project/store_hup/android/app/.cxx/RelWithDebInfo/436i4v2i/x86/CMakeFiles/rebuild_cache.dir

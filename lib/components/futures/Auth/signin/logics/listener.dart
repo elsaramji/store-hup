@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:store_hup/components/Home/views/home_view.dart';
-import 'package:store_hup/components/cart/core/services/firebase/data/cart_store_repo.dart';
 import 'package:store_hup/core/injection/Git_it.dart';
 import 'package:store_hup/service/firebase/auth/auth_service.dart';
 

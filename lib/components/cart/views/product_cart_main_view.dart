@@ -3,9 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:get/get.dart';
 import 'package:store_hup/components/cart/core/models/cart_item_entity.dart';
 import 'package:store_hup/components/cart/core/state_management/cart_state/cart_cubit.dart';
 import 'package:store_hup/components/cart/views/widgets/cart_item.dart';
+import 'package:store_hup/components/chackout/view/chack_out_main_view.dart';
 import 'package:store_hup/core/custom/widgets/alert_error.dart';
 import 'package:store_hup/core/custom/widgets/custom_button.dart';
 import 'package:store_hup/core/styles/color_style.dart';
@@ -40,9 +42,7 @@ class _ProductCartMainViewState extends State<ProductCartMainView> {
                     pinned: true,
                     leading: IconButton(
                       icon: const Icon(Icons.arrow_back),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
+                      onPressed: () {},
                     ),
                   ),
                   StreamBuilder(
@@ -107,7 +107,9 @@ class _ProductCartMainViewState extends State<ProductCartMainView> {
                   margin: const EdgeInsets.symmetric(horizontal: 16),
                   child: CustomButton(
                     titel: "استكمال الطلب",
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.to(ChackOutMainView(), curve: Curves.easeIn);
+                    },
                     titelcolor: AppColors.white,
                   ),
                 ),
