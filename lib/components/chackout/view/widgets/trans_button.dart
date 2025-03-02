@@ -1,4 +1,4 @@
-// components/chackout/view/trans_button.dart
+// components/chackout/view/widgets/trans_button.dart
 import 'package:flutter/material.dart';
 import 'package:store_hup/components/chackout/core/constant/const_var.dart';
 import 'package:store_hup/core/custom/widgets/custom_button.dart';
@@ -37,8 +37,8 @@ class TransButtonsBuilder extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
-            width: 16,
+          SizedBox(
+            width: index == 0 ? 0 : 16,
           ),
           Expanded(
             child: CustomButton(
