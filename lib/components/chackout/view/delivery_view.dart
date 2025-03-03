@@ -24,7 +24,7 @@ class _DeliveryState extends State<Delivery> {
             });
           } else {
             setState(() {
-              widget.isAcitveChoiesone = false;
+              widget.isAcitveChoiesone = !widget.isAcitveChoiestwo;
             });
           }
         },
@@ -46,7 +46,7 @@ class _DeliveryState extends State<Delivery> {
             });
           } else {
             setState(() {
-              widget.isAcitveChoiestwo = false;
+              widget.isAcitveChoiestwo = !widget.isAcitveChoiesone;
             });
           }
         },

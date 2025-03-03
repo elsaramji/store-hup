@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:store_hup/components/chackout/core/constant/const_var.dart';
-import 'package:store_hup/components/chackout/view/widgets/trans_button.dart';
 import 'package:store_hup/components/chackout/view/widgets/icons_steps.dart';
 import 'package:store_hup/components/chackout/view/widgets/page_steps.dart';
+import 'package:store_hup/components/chackout/view/widgets/trans_button.dart';
 
 // ignore: must_be_immutable
 class ChackOutMainView extends StatefulWidget {
@@ -50,4 +50,3 @@ class _ChackOutMainViewState extends State<ChackOutMainView> {
     );
   }
 }
-
