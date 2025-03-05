@@ -7,14 +7,14 @@ import 'package:store_hup/components/chackout/view/payment_view.dart';
 import 'package:store_hup/components/chackout/view/review_view.dart';
 
 List<String> titel() {
-  return ["التوصيل", "العنوان", "الدفع", "المراجعة"];
+  return ["الشحن", "العنوان", "الدفع", "المراجعة"];
 }
 
 List<Widget> views() {
   return [
     Delivery(),
     const AddressForm(),
-    const Payment(),
+    Payment(),
     const Review(),
   ];
 }

@@ -26,6 +26,22 @@ class Assets {
   /// assets/images/backgroundonboardingtow.svg
   static const String assetsImagesBackgroundonboardingtow = "assets/images/backgroundonboardingtow.svg";
 
+  /// Assets for assetsImagesBadge
+  /// assets/images/Badge.svg
+  static const String assetsImagesBadge = "assets/images/Badge.svg";
+
+  /// Assets for assetsImagesBadge1
+  /// assets/images/Badge-1.svg
+  static const String assetsImagesBadge1 = "assets/images/Badge-1.svg";
+
+  /// Assets for assetsImagesBadge2
+  /// assets/images/Badge-2.svg
+  static const String assetsImagesBadge2 = "assets/images/Badge-2.svg";
+
+  /// Assets for assetsImagesBadge3
+  /// assets/images/Badge-3.svg
+  static const String assetsImagesBadge3 = "assets/images/Badge-3.svg";
+
   /// Assets for assetsImagesBoildCart
   /// assets/images/boild/Cart.svg
   static const String assetsImagesBoildCart = "assets/images/boild/Cart.svg";
