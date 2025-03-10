@@ -28,7 +28,6 @@ class QuantityCartController extends StatefulWidget {
 class _QuantityCartControllerState extends State<QuantityCartController> {
   @override
   Widget build(BuildContext context) {
-    num quantity = 1;
     return Row(
       children: [
         IconButton(

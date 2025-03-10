@@ -7,6 +7,7 @@ import 'package:store_hup/components/products/widget/product_card.dart';
 
 import '../../../core/models/product.dart';
 
+// ignore: must_be_immutable
 class ProductGrid extends StatefulWidget {
   final List<Map<String, dynamic>> products;
   bool check_state = false;

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:store_hup/core/styles/color_style.dart';
 import 'package:store_hup/core/styles/font_style.dart';
 
+// ignore: must_be_immutable
 class StepsIconsBulider extends StatelessWidget {
   final List<String> titel;
   int widget_index = 0;

@@ -5,6 +5,7 @@ import 'package:store_hup/components/chackout/core/model/ordermodel.dart';
 import 'package:store_hup/components/chackout/core/state_management/order_cubit.dart';
 import 'package:store_hup/components/chackout/view/widgets/payment_choice_selector.dart';
 
+// ignore: must_be_immutable
 class Delivery extends StatefulWidget {
   bool isAcitveChoiesone = false;
   bool isAcitveChoiestwo = true;

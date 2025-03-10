@@ -13,6 +13,7 @@ import 'package:store_hup/core/custom/widgets/custom_button.dart';
 import 'package:store_hup/core/styles/color_style.dart';
 import 'package:store_hup/core/styles/font_style.dart';
 
+// ignore: must_be_immutable
 class ProductCartMainView extends StatefulWidget {
   static const routeName = '/product-cart-main-view';
   List<CartItemEntity> cartItems = [];

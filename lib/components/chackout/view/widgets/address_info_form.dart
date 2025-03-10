@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:store_hup/components/chackout/view/address_info_view.dart';
 import 'package:store_hup/core/custom/widgets/custom_text_filed.dart';
 
+// ignore: must_be_immutable
 class AddressInfoForm extends StatelessWidget {
   static GlobalKey<FormState> formkey = GlobalKey();
   AddressInfoForm({
