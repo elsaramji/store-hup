@@ -1,7 +1,14 @@
 // components/chackout/view/widgets/trans_button.dart
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_hup/components/cart/core/models/cart_item_entity.dart';
 import 'package:store_hup/components/chackout/core/constant/const_var.dart';
+import 'package:store_hup/components/chackout/core/model/ordermodel.dart';
+import 'package:store_hup/components/chackout/core/state_management/order_cubit.dart';
+import 'package:store_hup/components/chackout/view/address_info_view.dart';
+import 'package:store_hup/components/chackout/view/widgets/address_info_form.dart';
 import 'package:store_hup/core/custom/widgets/custom_button.dart';
+import 'package:store_hup/core/custom/widgets/custom_errors_massage.dart';
 import 'package:store_hup/core/custom/widgets/custom_social_button.dart';
 import 'package:store_hup/core/styles/color_style.dart';
 
@@ -44,9 +51,32 @@ class TransButtonsBuilder extends StatelessWidget {
             child: CustomButton(
               titel: index == titel().length - 1 ? "تاكيد" : "التالي",
               onPressed: () {
-                controller.nextPage(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeIn);
+                switch (index) {
+                  case 0:
+                    if (AddressInfoForm.formkey.currentState!.validate()) {
+                      AddressInfoForm.formkey.currentState!.save();
+                      OrderCubit().addOrder(OrderModel(
+                        id: OrderCubit.generateOrderId(),
+                        cartItems: context.read<List<CartItemEntity>>(),
+                        address: context.read<AddressModel>().address,
+                        name: context.read<AddressModel>().name,
+                        email: context.read<AddressModel>().email,
+                        phone: context.read<AddressModel>().phone,
+                        floor: context.read<AddressModel>().floor,
+                      ));
+                      controller.nextPage(
+                          duration: const Duration(milliseconds: 300),
+                          curve: Curves.easeIn);
+                    } else {
+                      ErrorsMassage.errorsBar(context, "يجب ملء جميع الخانات");
+                    }
+                    break;
+                  case 1:
+                    controller.nextPage(
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.easeIn);
+                    break;
+                }
               },
               titelcolor: AppColors.white,
             ),

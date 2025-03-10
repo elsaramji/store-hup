@@ -49,7 +49,12 @@ class CartCubit extends Cubit<CartState> {
   }
 
   Stream<QuerySnapshot> getCart() {
+    cartStoreRepo.calculateTotal();
     return cartStoreRepo.getCart();
+  }
+
+  calcTotle() {
+    return cartStoreRepo.calculateTotal();
   }
 
   List<dynamic> buildSharedData(Stream<QuerySnapshot> cartStream) {

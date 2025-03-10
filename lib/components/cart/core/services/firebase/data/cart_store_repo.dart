@@ -31,4 +31,15 @@ class CartFirebaseRepo {
   Stream<QuerySnapshot> getCart() {
     return firebase_collaction.snapshots();
   }
+
+  num calculateTotal() {
+    num total = 0;
+    firebase_collaction.snapshots().listen((event) {
+      event.docs.forEach((element) {
+        total += CartItemEntity.fromMap(element.data() as Map<String, dynamic>)
+            .total;
+      });
+    });
+    return total;
+  }
 }

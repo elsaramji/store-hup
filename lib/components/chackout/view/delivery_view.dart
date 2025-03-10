@@ -1,6 +1,8 @@
 // components/chackout/view/delivery_view.dart
 
 import 'package:flutter/material.dart';
+import 'package:store_hup/components/chackout/core/model/ordermodel.dart';
+import 'package:store_hup/components/chackout/core/state_management/order_cubit.dart';
 import 'package:store_hup/components/chackout/view/widgets/payment_choice_selector.dart';
 
 class Delivery extends StatefulWidget {
@@ -26,6 +28,8 @@ class _DeliveryState extends State<Delivery> {
             setState(() {
               widget.isAcitveChoiesone = !widget.isAcitveChoiestwo;
             });
+            OrderCubit()
+                .updateOrder(OrderModel(paymentCash: widget.isAcitveChoiesone));
           }
         },
         child: SelctorPayment(
@@ -48,6 +52,8 @@ class _DeliveryState extends State<Delivery> {
             setState(() {
               widget.isAcitveChoiestwo = !widget.isAcitveChoiesone;
             });
+            OrderCubit().updateOrder(
+                OrderModel(paymentOnline: widget.isAcitveChoiestwo));
           }
         },
         child: SelctorPayment(

@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import '../../styles/color_style.dart';
 import '../../styles/font_style.dart';
 
-
 @immutable
 // ignore: must_be_immutable
 class CustomTextformField extends StatefulWidget {
@@ -13,6 +12,8 @@ class CustomTextformField extends StatefulWidget {
 
   final TextInputType keybordetepy;
   final void Function(String?)? onsaved;
+  final void Function(String?)? onChanged;
+  
   bool obscuretext;
   final List<Icon>? suffixicons;
   CustomTextformField({
@@ -20,6 +21,7 @@ class CustomTextformField extends StatefulWidget {
     required this.keybordetepy,
     required this.hinttext,
     this.onsaved,
+    this.onChanged,
     this.obscuretext = false,
     this.suffixicons,
   });
@@ -31,8 +33,8 @@ class CustomTextformField extends StatefulWidget {
 class _CustomTextformFieldState extends State<CustomTextformField> {
   @override
   Widget build(BuildContext context) {
-   
     return TextFormField(
+      onChanged: widget.onChanged,
       onSaved: widget.onsaved,
       style: TextsStyle.semibold13,
       keyboardType: widget.keybordetepy,

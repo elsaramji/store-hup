@@ -12,10 +12,10 @@ class CardForm extends StatelessWidget {
     return Column(
       children: [
         CustomTextformField(
-            keybordetepy: TextInputType.name, hinttext: "اسم حامل البطاقه"),
+            keybordetepy: TextInputType.name, hinttext: "اسم حامل البطاقه", onChanged: (value) {  },),
         const SizedBox(height: 6),
         CustomTextformField(
-            keybordetepy: TextInputType.number, hinttext: "رقم البطاقه"),
+            keybordetepy: TextInputType.number, hinttext: "رقم البطاقه", onChanged: (value) {  },),
         const SizedBox(height: 6),
         Row(
           children: [
