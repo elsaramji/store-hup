@@ -1,7 +1,5 @@
 // service/database/presence.dart
 
-import 'dart:developer';
-
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Preferences {
@@ -28,8 +26,6 @@ class Preferences {
   }
 
   static String? getStringfromShared(String key) {
-    log(key);
-    log(_incetans.getString(key).toString());
     return _incetans.getString(key);
   }
 }

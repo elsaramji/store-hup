@@ -2,15 +2,13 @@
 import 'package:store_hup/components/cart/core/models/cart_item_entity.dart';
 
 class OrderModel {
-  final String? id;
+  String? id;
   final List<CartItemEntity>? cartItems;
   final String? address;
   final String? floor;
   final String? phone;
   final String? email;
   final String? name;
-  final bool? paymentOnline;
-  final bool? paymentCash;
 
   OrderModel({
     this.id,
@@ -20,8 +18,6 @@ class OrderModel {
     this.phone,
     this.email,
     this.name,
-    this.paymentOnline,
-    this.paymentCash,
   });
 
   Map<String, dynamic> toMap() => {
@@ -31,8 +27,6 @@ class OrderModel {
         'phone': phone,
         'email': email,
         'name': name,
-        'paymentOnline': paymentOnline,
-        'paymentCash': paymentCash,
         'floor': floor
       };
 
@@ -44,8 +38,6 @@ class OrderModel {
         phone: map['phone'],
         email: map['email'],
         name: map['name'],
-        paymentOnline: map['paymentOnline'],
-        paymentCash: map['paymentCash'],
         floor: map['floor'],
       );
 }

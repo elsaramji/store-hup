@@ -1,9 +1,15 @@
 // components/chackout/view/review_view.dart
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:store_hup/core/assets/assets_image.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:store_hup/components/chackout/core/model/ordermodel.dart';
+import 'package:store_hup/components/chackout/core/services/order_repo.dart';
+import 'package:store_hup/components/chackout/view/edit_divider.dart';
+import 'package:store_hup/components/chackout/view/widgets/delivery_data.dart';
+import 'package:store_hup/components/chackout/view/widgets/order_payment_data.dart';
+import 'package:store_hup/components/chackout/view/widgets/payment_data.dart';
 import 'package:store_hup/core/styles/color_style.dart';
-import 'package:store_hup/core/styles/font_style.dart';
+import 'package:store_hup/service/database/presence.dart';
 
 class Review extends StatelessWidget {
   const Review({super.key});
@@ -12,145 +18,50 @@ class Review extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16),
-      child: Column(children: [
-        Column(children: [
-          Text(
-            "ملخص الطلب :",
-            style: TextsStyle.bold13.copyWith(color: AppColors.grayscale950),
-          ),
-          const SizedBox(
-            height: 23,
-          ),
-          Row(
-            children: [
-              Text(
-                "المجموع الفرعي :",
-                style: TextsStyle.regular13
-                    .copyWith(color: AppColors.grayscale500),
-              ),
-              const Spacer(),
-              Text(
-                "50 جنية",
-                style: TextsStyle.regular13
-                    .copyWith(color: AppColors.grayscale950),
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              Text(
-                "التوصيل :",
-                style: TextsStyle.regular13
-                    .copyWith(color: AppColors.grayscale500),
-              ),
-              const Spacer(),
-              Text(
-                "50 جنية",
-                style: TextsStyle.regular13
-                    .copyWith(color: AppColors.grayscale950),
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              Text(
-                "الضريبة :",
-                style: TextsStyle.regular13
-                    .copyWith(color: AppColors.grayscale500),
-              ),
-              const Spacer(),
-              Text(
-                "50 جنية",
-                style: TextsStyle.regular13
-                    .copyWith(color: AppColors.grayscale950),
-              ),
-            ],
-          ),
-          Row(children: [
-            Text(
-              "المجموع الكلي :",
-              style:
-                  TextsStyle.regular13.copyWith(color: AppColors.grayscale500),
-            ),
-            const Spacer(),
-            Text(
-              "50 جنية",
-              style:
-                  TextsStyle.regular13.copyWith(color: AppColors.grayscale950),
-            ),
-          ])
-        ]),
-        Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          const SizedBox(
-            height: 23,
-          ),
-          Text("يرجي تأكيد  طلبك",
-              style: TextsStyle.bold13.copyWith(color: AppColors.grayscale950)),
-          const SizedBox(
-            height: 23,
-          ),
-          const EditDivder(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              const Spacer(),
-              Text(
-                "**** **** **** 6522",
-                style: TextsStyle.regular16
-                    .copyWith(color: AppColors.grayscale950),
-              ),
-              const SizedBox(
-                width: 16,
-              ),
-              SvgPicture.asset(Assets.assetsImagesBadge),
-            ],
-          )
-        ]),
-        const EditDivder(),
-        const SizedBox(
-          height: 16,
-        ),
-        Row(
-          children: [
-            const Icon(
-              Icons.location_on_outlined,
-            ),
-            Text(
-              "شارع النيل، مبنى رقم ١٢٣",
-              style:
-                  TextsStyle.regular13.copyWith(color: AppColors.grayscale600),
-            )
-          ],
-        ),
-      ]),
+      child: FutureBuilder(
+          future: context
+              .read<OrderRepo>()
+              .firebase_collaction
+              .doc(Preferences.getStringfromShared("orderId"))
+              .get(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              Map<String, dynamic> data =
+                  snapshot.data!.data() as Map<String, dynamic>;
+
+              OrderModel orderModel = OrderModel.fromMap(data);
+              double totelCart = 0;
+
+              orderModel.cartItems!.forEach(
+                (element) {
+                  totelCart += double.parse(element.product.price) *
+                      double.parse(element.count.toString());
+                },
+              );
+              return SingleChildScrollView(
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    spacing: 16,
+                    children: [
+                      Orderpaydata(
+                          orderModel: orderModel, totelCart: totelCart),
+                      const Paymentdata(),
+                      const EditDivder(title: "معلومات التوصيل"),
+                      Deliverydata(orderModel: orderModel),
+                    ]),
+              );
+            } else {
+              return const Center(
+                child: SpinKitPianoWave(
+                  color: AppColors.green1700,
+                ),
+              );
+            }
+          }),
     );
   }
 }
 
-class EditDivder extends StatelessWidget {
-  const EditDivder({
-    super.key,
-  });
 
-  @override
-  Widget build(BuildContext context) {
-    return Row(children: [
-      Text("وسيلة الدفع",
-          style: TextsStyle.bold13.copyWith(color: AppColors.grayscale950)),
-      const Spacer(),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          const Icon(
-            Icons.edit,
-            color: AppColors.grayscale400,
-          ),
-          Text(
-            "تغيير",
-            style: TextsStyle.regular13.copyWith(color: AppColors.grayscale400),
-          ),
-        ],
-      )
-    ]);
-  }
-}
+
+

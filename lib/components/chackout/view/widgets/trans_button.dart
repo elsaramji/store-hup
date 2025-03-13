@@ -2,9 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_hup/components/cart/core/models/cart_item_entity.dart';
+import 'package:store_hup/components/cart/core/services/firebase/data/cart_store_repo.dart';
 import 'package:store_hup/components/chackout/core/constant/const_var.dart';
 import 'package:store_hup/components/chackout/core/model/ordermodel.dart';
-import 'package:store_hup/components/chackout/core/state_management/order_cubit.dart';
+import 'package:store_hup/components/chackout/core/services/order_repo.dart';
 import 'package:store_hup/components/chackout/view/address_info_view.dart';
 import 'package:store_hup/components/chackout/view/widgets/address_info_form.dart';
 import 'package:store_hup/core/custom/widgets/custom_button.dart';
@@ -55,15 +56,17 @@ class TransButtonsBuilder extends StatelessWidget {
                   case 0:
                     if (AddressInfoForm.formkey.currentState!.validate()) {
                       AddressInfoForm.formkey.currentState!.save();
-                      OrderCubit().addOrder(OrderModel(
-                        id: OrderCubit.generateOrderId(),
-                        cartItems: context.read<List<CartItemEntity>>(),
-                        address: context.read<AddressModel>().address,
-                        name: context.read<AddressModel>().name,
-                        email: context.read<AddressModel>().email,
-                        phone: context.read<AddressModel>().phone,
-                        floor: context.read<AddressModel>().floor,
-                      ));
+                      context.read<OrderRepo>().uploading(OrderModel(
+                            cartItems: context.read<List<CartItemEntity>>(),
+                            address: context.read<AddressModel>().address,
+                            name: context.read<AddressModel>().name,
+                            email: context.read<AddressModel>().email,
+                            phone: context.read<AddressModel>().phone,
+                            floor: context.read<AddressModel>().floor,
+                          ));
+                      context.read<List<CartItemEntity>>().forEach((element) {
+                        CartFirebaseRepo().removed(element);
+                      });
                       controller.nextPage(
                           duration: const Duration(milliseconds: 300),
                           curve: Curves.easeIn);
