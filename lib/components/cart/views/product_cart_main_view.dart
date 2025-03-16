@@ -55,6 +55,16 @@ class _ProductCartMainViewState extends State<ProductCartMainView> {
                 StreamBuilder(
                     stream: context.read<CartCubit>().getCart(),
                     builder: (context, snapshot) {
+                      if (snapshot.data!.docs.isEmpty) {
+                        return const SliverToBoxAdapter(
+                          child: Center(
+                            child: AlertError(
+                              icon: Icon(Icons.remove_shopping_cart),
+                              title: "لا يوجد منتجات في السلة",
+                            ),
+                          ),
+                        );
+                      }
                       if (snapshot.hasData && snapshot.data!.docs.isNotEmpty) {
                         widget.cartItems = snapshot.data!.docs
                             .map((e) => CartItemEntity.fromMap(

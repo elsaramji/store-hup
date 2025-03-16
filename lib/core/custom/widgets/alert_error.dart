@@ -2,7 +2,11 @@
 import 'package:flutter/material.dart';
 
 class AlertError extends StatelessWidget {
+  final String? title;
+  final Icon? icon;
   const AlertError({
+    this.title,
+    this.icon,
     super.key,
   });
 
@@ -10,11 +14,12 @@ class AlertError extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: AlertDialog(
-        title: const Icon(
-          Icons.warning_outlined,
-          color: Colors.red,
-        ),
-        content: const Text('خطأ في الاتصال بقاعدة البيانات'),
+        title: icon ??
+            const Icon(
+              Icons.warning_outlined,
+              color: Colors.red,
+            ),
+        content: Text(title ?? 'خطأ في الاتصال بقاعدة البيانات'),
         actions: <Widget>[
           TextButton(
             child: const Text('اغلاق'),
