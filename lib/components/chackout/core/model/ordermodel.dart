@@ -9,7 +9,6 @@ class OrderModel {
   final String? phone;
   final String? email;
   final String? name;
-  bool? paymentOnline;
 
   OrderModel({
     this.id,
@@ -19,7 +18,6 @@ class OrderModel {
     this.phone,
     this.email,
     this.name,
-    this.paymentOnline = false,
   });
 
   Map<String, dynamic> toMap() => {
@@ -29,8 +27,7 @@ class OrderModel {
         'phone': phone,
         'email': email,
         'name': name,
-        'floor': floor,
-        'paymentOnline': paymentOnline,
+        'floor': floor
       };
 
   factory OrderModel.fromMap(Map<String, dynamic> map) => OrderModel(
@@ -42,6 +39,5 @@ class OrderModel {
         email: map['email'],
         name: map['name'],
         floor: map['floor'],
-        paymentOnline: map['paymentOnline'],
       );
 }

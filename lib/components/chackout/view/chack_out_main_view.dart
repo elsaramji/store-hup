@@ -45,7 +45,6 @@ class _ChackOutMainViewState extends State<ChackOutMainView> {
         Provider.value(value: OrderRepo()),
         Provider.value(value: widget.cartItems),
         Provider.value(value: AddressModel()),
-        
       ],
       child: Scaffold(
         appBar: AppBar(

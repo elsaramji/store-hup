@@ -4,12 +4,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
 import 'package:store_hup/components/futures/Splash/view/splash.dart';
 import 'package:store_hup/firebase_options.dart';
 import 'package:store_hup/generated/l10n.dart';
-import 'package:store_hup/service/paymet/api_keys.dart';
 
 import 'core/helper/on_Generate.dart';
 import 'core/injection/Git_it.dart';
@@ -19,7 +17,6 @@ import 'service/state_management/BlocObservers/bloc_observers.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Stripe.publishableKey = ApiPaymentKey.publishablekey;
   Bloc.observer = BlocObserverImpl();
 
   await Firebase.initializeApp(
