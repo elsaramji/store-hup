@@ -7,7 +7,6 @@ import 'package:store_hup/components/products/state_management/get_product_cubit
 import 'package:store_hup/components/products/widget/products_tap/scrrolled_products%20_bar.dart';
 import 'package:store_hup/core/custom/widgets/CustomHome/custom_prodcut_searchbar.dart';
 import 'package:store_hup/core/custom/widgets/alert_error.dart';
-
 import '../../../core/assets/assets_image.dart';
 import '../../../core/custom/widgets/CustomHome/custom_Page_Appbar.dart';
 import '../../../core/styles/color_style.dart';

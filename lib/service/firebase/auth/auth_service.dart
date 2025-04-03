@@ -36,7 +36,7 @@ class FirebaseAuthService {
       // add user to fireStore database
       UserOperationsFirestore.addusertofirestore(users!);
 
-      // return user credential  from firebase
+      //ToDo:: return user credential  from firebase
       return right(users!);
     }
     // catch firebase auth exception
@@ -62,6 +62,7 @@ class FirebaseAuthService {
           .signInWithEmailAndPassword(email: email, password: password);
       users = Usermodel.fromFirebase(credential.user!);
       await isLoggedIn();
+
       // return user credential from firebase
       return right(users!);
     }
@@ -134,6 +135,7 @@ class FirebaseAuthService {
       userStream = FirebaseAuth.instance.userChanges();
       UserOperationsFirestore.addusertofirestore(users!);
       saveUserId(users!);
+
       // return user from firebase
       return right(users!);
     }

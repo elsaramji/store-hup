@@ -7,7 +7,9 @@ import 'package:store_hup/core/styles/color_style.dart';
 import 'package:store_hup/core/styles/font_style.dart';
 
 class Paymentdata extends StatelessWidget {
+  final bool isOnline;
   const Paymentdata({
+    this.isOnline = false,
     super.key,
   });
 
@@ -22,19 +24,17 @@ class Paymentdata extends StatelessWidget {
       const EditDivder(
         title: "معلومات الدفع",
       ),
-      Row(
-        children: [
-          const Spacer(),
-          Text(
-            "**** **** **** 6522",
-            style: TextsStyle.regular16.copyWith(color: AppColors.grayscale950),
-          ),
-          const SizedBox(
-            width: 16,
-          ),
-          SvgPicture.asset(Assets.assetsImagesBadge),
-        ],
-      )
+      isOnline
+          ? Row(children: [
+              Flexible(child: SvgPicture.asset(Assets.assetsImagesBadge1)),
+              const Spacer(),
+              Text(" تم الدفع عن طريق البطاقة البنكية",
+                  style: TextsStyle.regular16
+                      .copyWith(color: AppColors.grayscale950))
+            ])
+          : Text("الدفع عند الاستلام",
+              style:
+                  TextsStyle.regular16.copyWith(color: AppColors.grayscale950))
     ]);
   }
 }

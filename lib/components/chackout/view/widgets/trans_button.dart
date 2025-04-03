@@ -1,6 +1,8 @@
 // components/chackout/view/widgets/trans_button.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
+import 'package:store_hup/components/Home/views/home_view.dart';
 import 'package:store_hup/components/cart/core/models/cart_item_entity.dart';
 import 'package:store_hup/components/cart/core/services/firebase/data/cart_store_repo.dart';
 import 'package:store_hup/components/chackout/core/constant/const_var.dart';
@@ -63,10 +65,10 @@ class TransButtonsBuilder extends StatelessWidget {
                             email: context.read<AddressModel>().email,
                             phone: context.read<AddressModel>().phone,
                             floor: context.read<AddressModel>().floor,
+                            paymentOnline:
+                                context.read<AddressModel>().paymentOnline,
                           ));
-                      context.read<List<CartItemEntity>>().forEach((element) {
-                        CartFirebaseRepo().removed(element);
-                      });
+
                       controller.nextPage(
                           duration: const Duration(milliseconds: 300),
                           curve: Curves.easeIn);
@@ -75,9 +77,11 @@ class TransButtonsBuilder extends StatelessWidget {
                     }
                     break;
                   case 1:
-                    controller.nextPage(
-                        duration: const Duration(milliseconds: 300),
-                        curve: Curves.easeIn);
+                    context.read<List<CartItemEntity>>().forEach((element) {
+                      CartFirebaseRepo().removed(element);
+                    });
+                    //exit dialog
+                    Get.to(HomeMainView());
                     break;
                 }
               },

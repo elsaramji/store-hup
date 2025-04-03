@@ -4,11 +4,19 @@ import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:store_hup/components/chackout/core/model/ordermodel.dart';
+import 'package:store_hup/core/constant/end_points.dart';
+import 'package:store_hup/core/injection/Git_it.dart';
 import 'package:store_hup/service/database/presence.dart';
+import 'package:store_hup/service/firebase/auth/auth_service.dart';
 
 class OrderRepo {
   final CollectionReference firebase_collaction =
       FirebaseFirestore.instance.collection('orders');
+  final CollectionReference firebase_collaction_users = FirebaseFirestore
+      .instance
+      .collection(EndPoints.usersEndPoints)
+      .doc(getIt<FirebaseAuthService>().getUserId())
+      .collection('orders');
   static String generateOrderId() {
     // Get the current date
     final DateTime now = DateTime.now();
@@ -29,6 +37,7 @@ class OrderRepo {
     orderModel.id = orderId;
     Preferences.setString("orderId", orderId);
     await firebase_collaction.doc(orderId).set(orderModel.toMap());
+    await firebase_collaction_users.doc(orderId).set(orderModel.toMap());
   }
 
   Future<void> update(OrderModel orderModel) async {

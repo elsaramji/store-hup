@@ -1,9 +1,9 @@
 // components/cart/views/product_cart_main_view.dart
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 import 'package:store_hup/components/cart/core/models/cart_item_entity.dart';
 import 'package:store_hup/components/cart/core/state_management/cart_state/cart_cubit.dart';
 import 'package:store_hup/components/cart/views/widgets/cart_item.dart';
@@ -17,7 +17,7 @@ import 'package:store_hup/core/styles/font_style.dart';
 class ProductCartMainView extends StatefulWidget {
   static const routeName = '/product-cart-main-view';
   List<CartItemEntity> cartItems = [];
-
+  int cartLength = 0;
   ProductCartMainView({
     super.key,
   });
@@ -27,8 +27,6 @@ class ProductCartMainView extends StatefulWidget {
 }
 
 class _ProductCartMainViewState extends State<ProductCartMainView> {
-  num pay = 0;
-
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -36,11 +34,14 @@ class _ProductCartMainViewState extends State<ProductCartMainView> {
         BlocProvider(
           create: (context) => CartCubit(),
         ),
+        Provider.value(value: widget.cartLength)
       ],
       child: SafeArea(
         child: Stack(
           children: [
             Container(
+              width: MediaQuery.sizeOf(context).width,
+              height: MediaQuery.sizeOf(context).height,
               margin: const EdgeInsets.symmetric(horizontal: 16),
               child: CustomScrollView(slivers: [
                 SliverAppBar(
@@ -56,10 +57,12 @@ class _ProductCartMainViewState extends State<ProductCartMainView> {
                     stream: context.read<CartCubit>().getCart(),
                     builder: (context, snapshot) {
                       if (snapshot.hasData && snapshot.data!.docs.isNotEmpty) {
+                        widget.cartLength = snapshot.data!.docs.length;
                         widget.cartItems = snapshot.data!.docs
                             .map((e) => CartItemEntity.fromMap(
                                 e.data() as Map<String, dynamic>))
                             .toList();
+
                         return SliverList(
                           delegate: SliverChildListDelegate(
                             [
@@ -89,6 +92,29 @@ class _ProductCartMainViewState extends State<ProductCartMainView> {
                                     );
                                   }),
                             ],
+                          ),
+                        );
+                      }
+                      if (snapshot.data != null &&
+                          snapshot.data!.docs.isEmpty) {
+                        return SliverToBoxAdapter(
+                          child: Container(
+                            height: MediaQuery.sizeOf(context).height,
+                            width: MediaQuery.sizeOf(context).width,
+                            child: const Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.remove_shopping_cart_outlined,
+                                    color: AppColors.primaryColor,
+                                    size: 100,
+                                  ),
+                                  Text("لا يوجد منتجات"),
+                                  SizedBox(height: 100),
+                                ],
+                              ),
+                            ),
                           ),
                         );
                       } else if (snapshot.hasError) {

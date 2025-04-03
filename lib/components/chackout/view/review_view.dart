@@ -9,10 +9,11 @@ import 'package:store_hup/components/chackout/view/widgets/delivery_data.dart';
 import 'package:store_hup/components/chackout/view/widgets/order_payment_data.dart';
 import 'package:store_hup/components/chackout/view/widgets/payment_data.dart';
 import 'package:store_hup/core/styles/color_style.dart';
+import 'package:store_hup/core/styles/font_style.dart';
 import 'package:store_hup/service/database/presence.dart';
 
-class Review extends StatelessWidget {
-  const Review({super.key});
+class Resete extends StatelessWidget {
+  const Resete({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -43,9 +44,57 @@ class Review extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     spacing: 16,
                     children: [
+                      const Row(
+                        children: [
+                          Expanded(
+                              child:
+                                  Text("المنتجات", style: TextsStyle.bold16)),
+                          Spacer(),
+                          Expanded(
+                              child: Text("الكمية", style: TextsStyle.bold16)),
+                          Spacer(),
+                          Expanded(
+                              child: Text("السعر", style: TextsStyle.bold16)),
+                        ],
+                      ),
+                      ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: orderModel.cartItems!.length,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          return Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: Text(
+                                    orderModel.cartItems![index].product.name,
+                                    style: TextsStyle.regular16.copyWith(
+                                        color: AppColors.grayscale950)),
+                              ),
+                              const Spacer(),
+                              Expanded(
+                                child: Text(
+                                    orderModel.cartItems![index].count
+                                        .toString(),
+                                    style: TextsStyle.regular16.copyWith(
+                                        color: AppColors.grayscale950)),
+                              ),
+                              const Spacer(),
+                              Expanded(
+                                child: Text(
+                                    orderModel.cartItems![index].product.price,
+                                    style: TextsStyle.regular16.copyWith(
+                                        color: AppColors.grayscale950)),
+                              ),
+                            ],
+                          );
+                        },
+                      ),
                       Orderpaydata(
                           orderModel: orderModel, totelCart: totelCart),
-                      const Paymentdata(),
+                      Paymentdata(
+                        isOnline: orderModel.paymentOnline,
+                      ),
                       const EditDivder(title: "معلومات التوصيل"),
                       Deliverydata(orderModel: orderModel),
                     ]),
@@ -61,7 +110,3 @@ class Review extends StatelessWidget {
     );
   }
 }
-
-
-
-
