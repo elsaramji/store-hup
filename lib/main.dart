@@ -6,7 +6,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:store_hup/components/futures/Splash/view/splash.dart';
+import 'package:store_hup/core/constant/end_points.dart';
 import 'package:store_hup/firebase_options.dart';
 import 'package:store_hup/generated/l10n.dart';
 import 'package:store_hup/service/paymet/api_keys.dart';
@@ -21,14 +24,15 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Stripe.publishableKey = ApiPaymentKey.publishablekey;
   Bloc.observer = BlocObserverImpl();
-
+  await Hive.initFlutter();
+  await Hive.openBox(EndPoints.usersEndPoints);
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   await Preferences.init();
 
   setupGetIt();
-  
+
   runApp(const FruitHup());
 }
 

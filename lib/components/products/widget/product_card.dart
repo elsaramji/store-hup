@@ -13,7 +13,7 @@ import '../../../core/models/product.dart';
 import '../../../core/styles/color_style.dart';
 import '../../../core/styles/font_style.dart';
 
-class ProductCard extends StatelessWidget {
+class ProductCard extends StatefulWidget {
   final Product product;
   final Function()? add;
 
@@ -24,38 +24,44 @@ class ProductCard extends StatelessWidget {
   });
 
   @override
+  State<ProductCard> createState() => _ProductCardState();
+}
+
+class _ProductCardState extends State<ProductCard> {
+  bool isFavorite = false;
+
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.to(ProductDetailsView(product: product));
+        Get.to(ProductDetailsView(product: widget.product));
       },
       child: AspectRatio(
         aspectRatio: 8 / 16,
         child: Container(
             padding: const EdgeInsets.all(8),
-            color: AppColors.grayscale50.withAlpha((255 * 0.3.toInt())),
+            color: const Color(0xffF3F5F7),
             child: Stack(children: <Widget>[
               Positioned.fill(
                 child: Column(
                   children: [
                     Expanded(
-                      flex: 2,
-                      child: Laodimage(product: product),
+                      flex: 3,
+                      child: Laodimage(product: widget.product),
                     ),
-                    const Expanded(flex: 1, child: SizedBox()),
                     Expanded(
-                      flex: 2,
+                      flex: 4,
                       child: ListTile(
                         contentPadding: EdgeInsets.zero,
                         title: Text(
-                          product.name,
+                          widget.product.name,
                           style: TextsStyle.semibold19
                               .copyWith(color: AppColors.grayscale950),
                         ),
                         subtitle: Text.rich(
                           TextSpan(children: [
                             TextSpan(
-                              text: "${product.price} جنية",
+                              text: "${widget.product.price} جنية",
                               style: TextsStyle.bold16
                                   .copyWith(color: AppColors.orange500),
                             ),
@@ -67,7 +73,7 @@ class ProductCard extends StatelessWidget {
                           ]),
                         ),
                         trailing: IconButton(
-                          onPressed: add,
+                          onPressed: widget.add,
                           icon: const Icon(
                             Icons.add,
                             color: AppColors.white,
@@ -85,10 +91,14 @@ class ProductCard extends StatelessWidget {
                   top: 0,
                   right: 0,
                   child: GestureDetector(
-                    onTap: () {},
-                    child: const Icon(
-                      Icons.sell_rounded,
-                      color: AppColors.grayscale950,
+                    onTap: () {
+                      setState(() {
+                        isFavorite = !isFavorite;
+                      });
+                    },
+                    child: Icon(
+                      Icons.favorite,
+                      color: isFavorite ? Colors.red : AppColors.grayscale500,
                     ),
                   )),
             ])),

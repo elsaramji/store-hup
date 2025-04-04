@@ -23,7 +23,7 @@ class UserOperationsFirestore {
 
   static Future<Usermodel?> fetchUserData({required String uid}) async {
     var user = await FirebaseDataService().fetchUserData(
-        path: EndPoints.usersEndPoints, uid: uid);
+         uid: uid);
     // check if user exist
     if (user != null) {
       return user;

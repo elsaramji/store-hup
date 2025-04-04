@@ -36,11 +36,12 @@ class FirebaseDataService {
   }
 
   Future<Usermodel?> fetchUserData(
-      {required String path, required String uid}) async {
-    var data = await _firestore.collection(path).doc(uid).get();
-    if (!data.exists) {
+      { required String uid}) async {
+    var data = await _firestore.collection("users").doc(uid).get();
+    if (data.exists) {
+      print("User Exist${data.data()}");
       return Usermodel.fromMap(data.data()!);
     }
-    return Usermodel.fromMap({});
+    return null;
   }
 }

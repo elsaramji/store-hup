@@ -6,7 +6,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../core/styles/color_style.dart';
 import '../../../../core/styles/font_style.dart';
 
-
 class CustomBoard extends StatelessWidget {
   final String subtitel, bacgroundpath, imagepath;
   final Widget title;
@@ -44,21 +43,15 @@ class CustomBoard extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(24.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                title,
-                const SizedBox(height: 16),
-                Text(
+              padding: const EdgeInsets.all(24.0),
+              child: Expanded(
+                child: Text(
                   subtitel,
                   textAlign: TextAlign.center,
                   style: TextsStyle.semibold13
                       .copyWith(color: AppColors.grayscale500),
-                )
-              ],
-            ),
-          )
+                ),
+              ))
         ],
       ),
     );
