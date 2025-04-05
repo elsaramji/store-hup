@@ -46,28 +46,28 @@ class _ProductCardState extends State<ProductCard> {
                 child: Column(
                   children: [
                     Expanded(
-                      flex: 3,
+                      flex: 4,
                       child: Laodimage(product: widget.product),
                     ),
                     Expanded(
-                      flex: 4,
+                      flex: 2,
                       child: ListTile(
                         contentPadding: EdgeInsets.zero,
                         title: Text(
                           widget.product.name,
-                          style: TextsStyle.semibold19
+                          style: TextsStyle.semibold16
                               .copyWith(color: AppColors.grayscale950),
                         ),
                         subtitle: Text.rich(
                           TextSpan(children: [
                             TextSpan(
                               text: "${widget.product.price} جنية",
-                              style: TextsStyle.bold16
+                              style: TextsStyle.bold13
                                   .copyWith(color: AppColors.orange500),
                             ),
                             TextSpan(
                               text: "كيلو",
-                              style: TextsStyle.semibold16
+                              style: TextsStyle.semibold13
                                   .copyWith(color: AppColors.orange300),
                             ),
                           ]),

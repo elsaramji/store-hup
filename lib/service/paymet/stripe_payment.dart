@@ -7,6 +7,7 @@ import 'package:store_hup/service/paymet/api_keys.dart';
 abstract class StripePayment {
   static Future<void> makePayment(int amount) async {
     try {
+      
       // initialize stripe payment sheet
       await Stripe.instance.initPaymentSheet(
         paymentSheetParameters: SetupPaymentSheetParameters(

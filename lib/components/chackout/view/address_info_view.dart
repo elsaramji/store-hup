@@ -40,39 +40,35 @@ class _AddressFormState extends State<AddressForm> {
               addressModel: context.read<AddressModel>(),
             ),
             const SizedBox(height: 16),
-            Container(
-              child: Column(
-                children: [
-                  Row(children: [
-                    const Text("الاجمالي", style: TextsStyle.regular16),
-                    const Spacer(),
-                    Text("${totelCart()} جنية", style: TextsStyle.bold16)
-                  ]),
-                  Container(
-                    margin: const EdgeInsets.only(right: 16, left: 16),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        SvgPicture.asset(
-                          Assets.assetsImagesBadge,
-                          fit: BoxFit.contain,
-                        ),
-                        SvgPicture.asset(
-                          Assets.assetsImagesBadge1,
-                          fit: BoxFit.contain,
-                        ),
-                      ],
+            Column(
+              children: [
+                Row(children: [
+                  const Text("الاجمالي", style: TextsStyle.regular16),
+                  const Spacer(),
+                  Text("${totelCart()} جنية", style: TextsStyle.bold16)
+                ]),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    SvgPicture.asset(
+                      Assets.assetsImagesBadge,
+                      fit: BoxFit.contain,
                     ),
-                  ),
-                  CustomButton(
-                      titel: "ادفع ${totelCart()} جنية",
-                      onPressed: () async{
-                        context.read<AddressModel>().paymentOnline = true;
-                        await StripePayment.makePayment((totelCart() * 100).toInt());
-                      },
-                      titelcolor: AppColors.white)
-                ],
-              ),
+                    SvgPicture.asset(
+                      Assets.assetsImagesBadge1,
+                      fit: BoxFit.contain,
+                    ),
+                  ],
+                ),
+                CustomButton(
+                    titel: "ادفع ${totelCart()} جنية",
+                    onPressed: () async {
+                      context.read<AddressModel>().paymentOnline = true;
+                      await StripePayment.makePayment(
+                          (totelCart() * 100).toInt());
+                    },
+                    titelcolor: AppColors.white)
+              ],
             )
           ],
         ),
