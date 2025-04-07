@@ -3,6 +3,7 @@ import 'package:store_hup/components/cart/core/models/cart_item_entity.dart';
 
 class OrderModel {
   String? id;
+  String uid;
   final List<CartItemEntity>? cartItems;
   final String? address;
   final String? floor;
@@ -10,6 +11,10 @@ class OrderModel {
   final String? email;
   final String? name;
   bool paymentOnline;
+  bool isChacked;
+  bool isDelivered;
+  bool isCanceled;
+  bool isRefunded;
 
   OrderModel({
     this.id,
@@ -19,7 +24,12 @@ class OrderModel {
     this.phone,
     this.email,
     this.name,
+    required this.uid,
     this.paymentOnline = false,
+    this.isChacked = false,
+    this.isDelivered = false,
+    this.isCanceled = false,
+    this.isRefunded = false,
   });
 
   Map<String, dynamic> toMap() => {
@@ -31,6 +41,11 @@ class OrderModel {
         'name': name,
         'floor': floor,
         'paymentOnline': paymentOnline,
+        'isChacked': isChacked,
+        'isDelivered': isDelivered,
+        'isCanceled': isCanceled,
+        'isRefunded': isRefunded,
+        'uid': uid,
       };
 
   factory OrderModel.fromMap(Map<String, dynamic> map) => OrderModel(
@@ -43,5 +58,10 @@ class OrderModel {
         name: map['name'],
         floor: map['floor'],
         paymentOnline: map['paymentOnline'],
+        isChacked: map['isChacked'],
+        isDelivered: map['isDelivered'],
+        isCanceled: map['isCanceled'],
+        isRefunded: map['isRefunded'],
+        uid: map['uid'],
       );
 }

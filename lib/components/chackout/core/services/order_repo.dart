@@ -7,7 +7,7 @@ import 'package:store_hup/components/chackout/core/model/ordermodel.dart';
 import 'package:store_hup/core/constant/end_points.dart';
 import 'package:store_hup/core/injection/Git_it.dart';
 import 'package:store_hup/service/database/presence.dart';
-import 'package:store_hup/service/firebase/auth/auth_service.dart';
+import 'package:store_hup/core/injection/firebase/auth/auth_service.dart';
 
 class OrderRepo {
   final CollectionReference firebase_collaction =
@@ -42,6 +42,9 @@ class OrderRepo {
 
   Future<void> update(OrderModel orderModel) async {
     await firebase_collaction
+        .doc(Preferences.getStringfromShared("orderId"))
+        .update(orderModel.toMap());
+    await firebase_collaction_users
         .doc(Preferences.getStringfromShared("orderId"))
         .update(orderModel.toMap());
   }

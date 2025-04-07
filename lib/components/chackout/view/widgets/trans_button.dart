@@ -13,6 +13,8 @@ import 'package:store_hup/components/chackout/view/widgets/address_info_form.dar
 import 'package:store_hup/core/custom/widgets/custom_button.dart';
 import 'package:store_hup/core/custom/widgets/custom_errors_massage.dart';
 import 'package:store_hup/core/custom/widgets/custom_social_button.dart';
+import 'package:store_hup/core/injection/Git_it.dart';
+import 'package:store_hup/core/injection/firebase/auth/auth_service.dart';
 import 'package:store_hup/core/styles/color_style.dart';
 
 class TransButtonsBuilder extends StatelessWidget {
@@ -59,6 +61,7 @@ class TransButtonsBuilder extends StatelessWidget {
                     if (AddressInfoForm.formkey.currentState!.validate()) {
                       AddressInfoForm.formkey.currentState!.save();
                       context.read<OrderRepo>().uploading(OrderModel(
+                            uid: getIt<FirebaseAuthService>().getUserId(),
                             cartItems: context.read<List<CartItemEntity>>(),
                             address: context.read<AddressModel>().address,
                             name: context.read<AddressModel>().name,

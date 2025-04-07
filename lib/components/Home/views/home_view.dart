@@ -11,8 +11,13 @@ import 'package:store_hup/components/products/state_management/get_product_cubit
 class HomeMainView extends StatefulWidget {
   static const String id = 'HomeView';
   int _selectedIndex = 0;
-  Widget body = const HomeViwebody();
-  HomeMainView({super.key});
+  Widget body = HomeViwebody();
+
+  HomeMainView({
+    super.key,
+  }) {
+    body = HomeViwebody();
+  }
   @override
   State<HomeMainView> createState() => _HomeMainViewState();
 }

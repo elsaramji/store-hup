@@ -1,15 +1,16 @@
 // components/navigation/logic/solamon_logic.dart
 import 'package:store_hup/components/cart/views/product_cart_main_view.dart';
+
 import '../../Home/views/home_view.dart';
 import '../../Home/views/home_view_body.dart';
 import '../../products/view/home_products_view.dart';
 import '../../profile/user_profile.dart';
+
 class SolamonLogic {
   static void bodybuilder(int index, HomeMainView widget) {
-  
     switch (index) {
       case 0:
-        widget.body = const HomeViwebody();
+        widget.body = HomeViwebody();
 
       case 1:
         widget.body = const HomeProductsView();

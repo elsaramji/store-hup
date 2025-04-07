@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/injection/Git_it.dart';
-import '../../../../../service/firebase/auth/auth_service.dart';
+import '../../../../../core/injection/firebase/auth/auth_service.dart';
 import '../../../../../service/state_management/sginup_cubit/sginup_cubit.dart';
 import '../logics/singup_logics_state.dart';
 

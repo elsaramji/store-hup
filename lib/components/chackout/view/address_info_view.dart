@@ -20,6 +20,7 @@ class AddressForm extends StatefulWidget {
 class _AddressFormState extends State<AddressForm> {
   @override
   Widget build(BuildContext context) {
+    bool isOnline = context.read<AddressModel>().paymentOnline;
     double totelCart() {
       double totelCart = 0;
 
@@ -61,11 +62,11 @@ class _AddressFormState extends State<AddressForm> {
                   ],
                 ),
                 CustomButton(
-                    titel: "ادفع ${totelCart()} جنية",
+                    titel: isOnline ? "تم الدفع" : "ادفع ${totelCart()} جنية",
                     onPressed: () async {
-                      context.read<AddressModel>().paymentOnline = true;
                       await StripePayment.makePayment(
                           (totelCart() * 100).toInt());
+                      isOnline = !isOnline;
                     },
                     titelcolor: AppColors.white)
               ],

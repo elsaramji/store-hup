@@ -1,17 +1,19 @@
 // components/Home/views/home_view_body.dart
 // components/Home/views/home_view_body.dart
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:store_hup/components/product_details_view/product_grid_view.dart';
 import 'package:store_hup/components/products/state_management/get_product_cubit.dart';
-import 'package:store_hup/components/profile/core/logic/local/user_hive.dart';
 import 'package:store_hup/core/custom/widgets/alert_error.dart';
 import 'package:store_hup/core/injection/Git_it.dart';
+import 'package:store_hup/core/injection/firebase/auth/auth_service.dart';
 import 'package:store_hup/core/models/user_entity.dart';
 import 'package:store_hup/core/styles/color_style.dart';
-import 'package:store_hup/service/firebase/auth/auth_service.dart';
+import 'package:store_hup/service/database/presence.dart';
 
 import '../../../core/custom/widgets/custom_prodcut_searchbar.dart';
 import '../custom/widgets/custom_bast_seller.dart';
@@ -19,19 +21,24 @@ import '../custom/widgets/custom_home_appbar.dart';
 import '../widgets/offers/offers_widget.dart';
 
 class HomeViwebody extends StatelessWidget {
-  const HomeViwebody({
+  HomeViwebody({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    Usermodel usermodel = Usermodel.fromMap(
-        UserHive.getUserData(uid: getIt<FirebaseAuthService>().getUserId()));
+    // get user model from hive
+
     return BlocProvider(
       create: (context) => GetProductCubit(),
       child: Builder(
         builder: (context) {
           context.read<GetProductCubit>().getProduct();
+          Usermodel usermodel = Usermodel.fromMap(jsonDecode(
+              Preferences.getStringfromShared(
+                      getIt<FirebaseAuthService>().getUserId()) ??
+                  '{}'));
+          ;
           return BlocBuilder<GetProductCubit, GetProductState>(
             builder: (context, state) {
               return SafeArea(

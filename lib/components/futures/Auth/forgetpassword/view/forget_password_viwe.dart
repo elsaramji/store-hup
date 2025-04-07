@@ -9,7 +9,7 @@ import '../../../../../core/custom/widgets/custom_text_filed.dart';
 import '../../../../../core/injection/Git_it.dart';
 import '../../../../../core/styles/color_style.dart';
 import '../../../../../core/styles/font_style.dart';
-import '../../../../../service/firebase/auth/auth_service.dart';
+import '../../../../../core/injection/firebase/auth/auth_service.dart';
 import '../../../../../service/state_management/forgetpassword_cubit/forgetpassword_cubit.dart';
 import '../../signin/views/Signin.dart';
 

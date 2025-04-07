@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/constant/keys.dart';
 import '../../../../core/injection/Git_it.dart';
 import '../../../../service/database/presence.dart';
-import '../../../../service/firebase/auth/auth_service.dart';
+import '../../../../core/injection/firebase/auth/auth_service.dart';
 import '../../../Home/views/home_view.dart';
 import '../../Auth/signin/views/Signin.dart';
 import '../../onboarding/view/view_main.dart';

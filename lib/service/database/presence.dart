@@ -18,7 +18,9 @@ class Preferences {
   }
 
   static setString(String key, String value) async {
-    return await _incetans.setString(key, value);
+    print("setString: $key = $value");
+
+    await _incetans.setString(key, value);
   }
 
   Future<String?> getUid() async {

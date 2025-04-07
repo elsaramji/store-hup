@@ -3,7 +3,7 @@ import 'package:bloc/bloc.dart';
 import 'package:store_hup/core/injection/Git_it.dart';
 
 import '../../../core/models/user_entity.dart';
-import '../../firebase/auth/auth_service.dart';
+import '../../../core/injection/firebase/auth/auth_service.dart';
 
 part 'siginin_cubit_state.dart';
 

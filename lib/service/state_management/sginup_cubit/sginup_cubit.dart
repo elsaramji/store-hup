@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
 import '../../../core/models/user_entity.dart';
-import '../../firebase/auth/auth_service.dart';
+import '../../../core/injection/firebase/auth/auth_service.dart';
 
 part 'sginup_state.dart';
 

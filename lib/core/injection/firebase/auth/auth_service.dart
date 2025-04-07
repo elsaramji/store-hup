@@ -6,10 +6,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import '../../../core/errors/failure.dart';
-import '../../../core/exceptions/auth_excaption.dart';
-import '../../../core/models/user_entity.dart';
-import '../../database/presence.dart';
+import '../../../../service/database/presence.dart';
+import '../../../errors/failure.dart';
+import '../../../exceptions/auth_excaption.dart';
+import '../../../models/user_entity.dart';
 import '../handle/database_operations/users_operations.dart';
 
 // Auth Service Class For Firebase
@@ -61,8 +61,6 @@ class FirebaseAuthService {
           // sign in with email and password in firebase
           .signInWithEmailAndPassword(email: email, password: password);
       users = Usermodel.fromFirebase(credential.user!);
-      await isLoggedIn();
-
       // return user credential from firebase
       return right(users!);
     }
@@ -169,8 +167,7 @@ class FirebaseAuthService {
   Future<bool> isLoggedIn() async {
     final user = FirebaseAuth.instance.currentUser;
     if (user != null) {
-      users = Usermodel.fromFirebase(user);
-      getUserId();
+      Usermodel.fromFirebase(user);
       return true;
     } else {
       return false;
@@ -196,4 +193,10 @@ class FirebaseAuthService {
   String getUserId() {
     return FirebaseAuth.instance.currentUser!.uid;
   }
+
+  String? preferencesgetUserId() {
+    return Preferences.getStringfromShared("uid");
+  }
+
+  void setUserId(String s) {}
 }

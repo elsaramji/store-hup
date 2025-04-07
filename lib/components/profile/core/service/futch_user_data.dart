@@ -1,5 +1,5 @@
 import 'package:store_hup/core/models/user_entity.dart';
-import 'package:store_hup/service/firebase/data/firebaseDataService.dart';
+import 'package:store_hup/core/injection/firebase/data/firebaseDataService.dart';
 
 class UserData {
  static Future<Usermodel?> futchUserdataFromFirebase(String uid) async {

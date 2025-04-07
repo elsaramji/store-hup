@@ -11,7 +11,7 @@ class Usermodel {
   final String? uid;
 
   Usermodel({required this.name, required this.email, required this.uid});
-  toMap() {
+  Map<String, dynamic> toMap() {
     return {
       "name": name,
       "email": email,
@@ -27,9 +27,9 @@ class Usermodel {
     );
   }
 
-  factory Usermodel.fromMap(Map<String, dynamic>? map) {
+  factory Usermodel.fromMap(Map<String, dynamic> map) {
     return Usermodel(
-      name: map!['name'],
+      name: map['name'],
       email: map['email'],
       uid: map['uid'],
     );

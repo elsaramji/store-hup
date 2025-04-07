@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:store_hup/components/cart/core/models/cart_item_entity.dart';
 import 'package:store_hup/core/constant/end_points.dart';
 import 'package:store_hup/core/injection/Git_it.dart';
-import 'package:store_hup/service/firebase/auth/auth_service.dart';
+import 'package:store_hup/core/injection/firebase/auth/auth_service.dart';
 
 class CartFirebaseRepo {
   CartFirebaseRepo();
