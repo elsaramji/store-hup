@@ -4,7 +4,7 @@ import 'package:store_hup/components/cart/views/product_cart_main_view.dart';
 import '../../Home/views/home_view.dart';
 import '../../Home/views/home_view_body.dart';
 import '../../products/view/home_products_view.dart';
-import '../../profile/user_profile.dart';
+import '../../profile/views/user_profile_main_view.dart';
 
 class SolamonLogic {
   static void bodybuilder(int index, HomeMainView widget) {

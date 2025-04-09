@@ -30,7 +30,7 @@ class OrderCubit extends Cubit<OrderState> {
     }
   }
 
-  Future<dynamic> futchOrder() {
+  futchOrder() {
     try {
       emit(OrderLoading());
       var data = OrderRepo().getOrder();

@@ -3,7 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:store_hup/components/cart/views/product_cart_main_view.dart';
 import 'package:store_hup/components/products/view/home_products_view.dart';
-import 'package:store_hup/components/profile/user_profile.dart';
+import 'package:store_hup/components/profile/views/user_oder_viwe.dart';
+import 'package:store_hup/components/profile/views/user_profile_edit_viwe.dart';
+import 'package:store_hup/components/profile/views/user_profile_main_view.dart';
 
 import '../../components/Home/views/best_seller_viwe.dart';
 import '../../components/Home/views/home_view.dart';
@@ -45,6 +47,10 @@ Route<dynamic>? ongenerate(RouteSettings setting) {
 
     case UserProfile.routeName:
       return MaterialPageRoute(builder: (context) => const UserProfile());
+    case UserProfileEditView.routeName:
+      return MaterialPageRoute(builder: (context) => UserProfileEditView());
+    case UserOderViwe.routeName:
+      return MaterialPageRoute(builder: (context) => UserOderViwe());
     default:
       return null;
   }

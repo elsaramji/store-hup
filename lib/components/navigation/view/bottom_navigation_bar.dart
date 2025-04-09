@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:store_hup/components/Home/views/home_view.dart';
 import 'package:store_hup/components/cart/views/product_cart_main_view.dart';
 import 'package:store_hup/components/products/view/home_products_view.dart';
-import 'package:store_hup/components/profile/user_profile.dart';
+import 'package:store_hup/components/profile/views/user_profile_main_view.dart';
 
 import '../../../core/models/navigation_icon_entity.dart';
 import '../widget/navigation_item.dart';

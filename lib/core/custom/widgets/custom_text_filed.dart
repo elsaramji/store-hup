@@ -13,11 +13,12 @@ class CustomTextformField extends StatefulWidget {
   final TextInputType keybordetepy;
   final void Function(String?)? onsaved;
   final void Function(String?)? onChanged;
-  
+  final String? initialValue;
   bool obscuretext;
   final List<Icon>? suffixicons;
   CustomTextformField({
     super.key,
+    this.initialValue,
     required this.keybordetepy,
     required this.hinttext,
     this.onsaved,
@@ -34,6 +35,7 @@ class _CustomTextformFieldState extends State<CustomTextformField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      initialValue: widget.initialValue,
       onChanged: widget.onChanged,
       onSaved: widget.onsaved,
       style: TextsStyle.semibold13,
