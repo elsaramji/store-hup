@@ -30,7 +30,9 @@ class ScrolledProductsBar extends StatelessWidget {
                 child: Column(children: [
                   CircleAvatar(
                     backgroundColor: AppColors.white,
-                    child: Laodimage(product: product),
+                    child: Laodimage(
+                      imageurl: product.imageurl,
+                    ),
                   ),
                   const Padding(padding: EdgeInsets.symmetric(vertical: 6)),
                   Text(

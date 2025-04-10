@@ -91,14 +91,6 @@ class _UserProfileState extends State<UserProfile> {
                 },
                 path_image: Assets.assetsImagesBox,
               ),
-              const SettingsItem(
-                title: "المفضلة",
-                path_image: Assets.assetsImagesHeart,
-              ),
-              const SettingsItem(
-                title: "المدفوعات",
-                path_image: Assets.assetsImagesEmptyWallet,
-              ),
               const SizedBox(
                 height: 12,
               ),

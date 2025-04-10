@@ -19,7 +19,9 @@ class ImagePorductInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 64, vertical: 64),
-      child: Laodimage(product: product),
+      child: Laodimage(
+        imageurl: product.imageurl,
+      ),
     );
   }
 }

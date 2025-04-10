@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:store_hup/components/cart/core/models/cart_item_entity.dart';
 import 'package:store_hup/components/chackout/core/model/ordermodel.dart';
 import 'package:store_hup/components/profile/views/widgets/order_obsever.dart';
 import 'package:store_hup/core/assets/assets_image.dart';
@@ -89,6 +88,3 @@ class _OrderItemState extends State<OrderItem> {
     );
   }
 }
-
-
-

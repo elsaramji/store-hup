@@ -28,7 +28,9 @@ class CartItem extends StatelessWidget {
               height: 92,
               width: 73,
               margin: const EdgeInsets.all(12),
-              child: Laodimage(product: product)),
+              child: Laodimage(
+                imageurl: product.imageurl,
+              )),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

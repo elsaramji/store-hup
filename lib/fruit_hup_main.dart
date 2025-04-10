@@ -12,7 +12,6 @@ class FruitHup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      themeMode: ThemeMode.dark,
       theme: ThemeData(
         fontFamily: 'Cairo',
         scaffoldBackgroundColor: AppColors.primaryWhite,

@@ -47,7 +47,9 @@ class _ProductCardState extends State<ProductCard> {
                   children: [
                     Expanded(
                       flex: 4,
-                      child: Laodimage(product: widget.product),
+                      child: Laodimage(
+                        imageurl: widget.product.imageurl,
+                      ),
                     ),
                     Expanded(
                       flex: 2,
@@ -110,17 +112,17 @@ class _ProductCardState extends State<ProductCard> {
 class Laodimage extends StatelessWidget {
   const Laodimage({
     super.key,
-    required this.product,
+    required this.imageurl,
   });
 
-  final Product product;
+  final String imageurl;
 
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
         filterQuality: FilterQuality.high,
         fit: BoxFit.contain,
-        imageUrl: product.imageurl,
+        imageUrl: imageurl,
         progressIndicatorBuilder: (context, url, downloadProgress) =>
             const Center(
               child: SpinKitFadingCube(

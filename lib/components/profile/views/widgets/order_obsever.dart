@@ -18,12 +18,16 @@ class OrderObsever extends StatelessWidget {
     return Visibility(
         visible: isExpanded,
         child: Column(
-          children: [OrderStateObsever(widget: widget)]
-            ..addAll(widget.order.cartItems!.map((e) {
-              return Orderdeteils(
-                cartItemEntity: e,
-              );
-            }).toList()),
+          children: [
+            Column(
+              children: widget.order.cartItems!.map((e) {
+                return Orderdeteils(
+                  cartItemEntity: e,
+                );
+              }).toList(),
+            ),
+            OrderStateObsever(widget: widget),
+          ],
         ));
   }
 }

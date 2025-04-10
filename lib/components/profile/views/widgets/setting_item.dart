@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:store_hup/core/assets/assets_image.dart';
 import 'package:store_hup/core/styles/color_style.dart';
 import 'package:store_hup/core/styles/font_style.dart';
 
@@ -16,33 +15,18 @@ class SettingsItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return ListTile(
       onTap: onTap,
-      child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 12),
-        child: Column(
-          children: [
-            Row(children: [
-              SvgPicture.asset(
-                path_image,
-              ),
-              Text(
-                title,
-                style: TextsStyle.semibold13.copyWith(
-                  color: AppColors.grayscale400,
-                ),
-              ),
-              const Spacer(),
-              SvgPicture.asset(Assets.assetsImagesArrowRight)
-            ]),
-            const Divider(
-              color: AppColors.grayscale200,
-              height: 1,
-              thickness: 1,
-            )
-          ],
-        ),
+      leading: SvgPicture.asset(path_image),
+      title: Text(
+        title,
+        style: TextsStyle.regular16.copyWith(color: AppColors.grayscale950),
       ),
+      trailing: const Icon(
+        Icons.arrow_forward_ios,
+        color: AppColors.grayscale500,
+      ),
+      contentPadding: EdgeInsets.zero,
     );
   }
 }
