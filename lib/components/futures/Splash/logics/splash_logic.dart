@@ -3,17 +3,18 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/constant/keys.dart';
 import '../../../../core/injection/Git_it.dart';
-import '../../../../service/database/presence.dart';
 import '../../../../core/injection/firebase/auth/auth_service.dart';
+import '../../../../service/database/presence.dart';
 import '../../../Home/views/home_view.dart';
-import '../../Auth/signin/views/Signin.dart';
+import '../../Auth/presentaion/signin/views/Signin.dart';
 import '../../onboarding/view/view_main.dart';
 
 class SplashLogic {
-  static void goToApp(context) async {
+  void goToApp(BuildContext context) async {
     final authService = getIt<FirebaseAuthService>();
     bool islogged = await authService.isLoggedIn();
 
@@ -21,11 +22,12 @@ class SplashLogic {
     if (islogged) {
       await getIt<FirebaseAuthService>().getUserId();
       log("logged user id is ${getIt<FirebaseAuthService>().getUserId()}");
-      Navigator.pushReplacementNamed(context, HomeMainView.id);
+
+      context.go(HomeMainView.id);
     } else if (Preferences.getBool(Keys.isviewedOnBoarding)) {
-      Navigator.pushReplacementNamed(context, Signin.route);
+      context.go(Signin.route);
     } else {
-      Navigator.popAndPushNamed(context, OnboardView.route);
+      context.push(OnboardView.route);
     }
   }
 }

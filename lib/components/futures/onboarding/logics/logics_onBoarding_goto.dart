@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constant/keys.dart';
 import '../../../../service/database/presence.dart';
-import '../../Auth/signin/views/Signin.dart';
+import '../../Auth/presentaion/signin/views/Signin.dart';
 
 class LogicsOnBoardingGoto {
   static void startnow(BuildContext context) {

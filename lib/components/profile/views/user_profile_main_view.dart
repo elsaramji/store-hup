@@ -5,7 +5,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:store_hup/components/futures/Auth/signin/views/Signin.dart';
+import 'package:store_hup/components/futures/Auth/presentaion/signin/views/Signin.dart';
 import 'package:store_hup/components/profile/views/user_oder_viwe.dart';
 import 'package:store_hup/components/profile/views/user_profile_edit_viwe.dart';
 import 'package:store_hup/components/profile/views/widgets/setting_item.dart';

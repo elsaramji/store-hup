@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:store_hup/components/futures/Splash/view/splash.dart';
-import 'package:store_hup/core/helper/on_Generate.dart';
+import 'package:store_hup/core/helper/go_routs.dart';
 import 'package:store_hup/core/styles/color_style.dart';
 import 'package:store_hup/generated/l10n.dart';
 
@@ -11,7 +9,9 @@ class FruitHup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp.router(
+     
+      routerConfig: router,
       theme: ThemeData(
         fontFamily: 'Cairo',
         scaffoldBackgroundColor: AppColors.primaryWhite,
@@ -31,8 +31,6 @@ class FruitHup extends StatelessWidget {
       supportedLocales: S.delegate.supportedLocales,
       locale: const Locale('ar'),
       debugShowCheckedModeBanner: false,
-      onGenerateRoute: (setting) => ongenerate(setting),
-      initialRoute: Splash.route,
     );
   }
 }
