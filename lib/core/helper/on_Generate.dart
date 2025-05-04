@@ -6,20 +6,16 @@ import 'package:store_hup/components/products/view/home_products_view.dart';
 import 'package:store_hup/components/profile/views/user_oder_viwe.dart';
 import 'package:store_hup/components/profile/views/user_profile_edit_viwe.dart';
 import 'package:store_hup/components/profile/views/user_profile_main_view.dart';
-
 import '../../components/Home/views/best_seller_viwe.dart';
 import '../../components/Home/views/home_view.dart';
 import '../../components/factory/factory_tast.dart';
 import '../../components/futures/Auth/presentaion/forgetpassword/view/forget_password_viwe.dart';
 import '../../components/futures/Auth/presentaion/signin/views/Signin.dart';
 import '../../components/futures/Auth/presentaion/signup/view/signup_view_builder.dart';
-import '../../components/futures/Splash/view/splash.dart';
 import '../../components/futures/onboarding/view/view_main.dart';
 
 Route<dynamic>? ongenerate(RouteSettings setting) {
   switch (setting.name) {
-    case Splash.route:
-      return MaterialPageRoute(builder: (context) => const Splash());
     case OnboardView.route:
       return MaterialPageRoute(builder: (context) => const OnboardView());
 

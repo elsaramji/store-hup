@@ -1,5 +1,10 @@
+// old future code
+// // state cancelation
+
+
 // components/futures/Splash/logics/splash_logic.dart
 
+/*
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
@@ -31,3 +36,5 @@ class SplashLogic {
     }
   }
 }
+*/
+

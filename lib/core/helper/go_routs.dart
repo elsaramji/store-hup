@@ -8,17 +8,12 @@ import 'package:store_hup/components/cart/views/product_cart_main_view.dart';
 import 'package:store_hup/components/factory/factory_tast.dart';
 import 'package:store_hup/components/futures/Auth/presentaion/forgetpassword/view/forget_password_viwe.dart';
 import 'package:store_hup/components/futures/Auth/presentaion/signin/views/Signin.dart';
-import 'package:store_hup/components/futures/Splash/view/splash.dart';
 import 'package:store_hup/components/futures/onboarding/view/view_main.dart';
 
 final GoRouter router = GoRouter(
   initialExtra: const OnboardView(),
   initialLocation: OnboardView.route,
   routes: [
-    GoRoute(
-      path: Splash.route,
-      pageBuilder: (context, state) => _funnyTransition(const Splash()),
-    ),
     GoRoute(
       path: HomeMainView.id,
       pageBuilder: (context, state) => _funnyTransition(HomeMainView()),
