@@ -1,6 +1,7 @@
 // components/futures/onboarding/view/view_one.dart
 
 import 'package:flutter/material.dart';
+
 import '../../../../core/assets/assets_image.dart';
 import '../widgets/custom_boarding.dart';
 import '../widgets/skip.dart';

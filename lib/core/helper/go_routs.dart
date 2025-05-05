@@ -9,10 +9,13 @@ import 'package:store_hup/components/factory/factory_tast.dart';
 import 'package:store_hup/components/futures/Auth/presentaion/forgetpassword/view/forget_password_viwe.dart';
 import 'package:store_hup/components/futures/Auth/presentaion/signin/views/Signin.dart';
 import 'package:store_hup/components/futures/onboarding/view/view_main.dart';
+import 'package:store_hup/core/constant/keys.dart';
+import 'package:store_hup/service/database/presence.dart';
 
+bool onBorarding() => Preferences.getBool(Keys.isviewedOnBoarding);
 final GoRouter router = GoRouter(
-  initialExtra: const OnboardView(),
-  initialLocation: OnboardView.route,
+  initialExtra: onBorarding() ? const Signin() : const OnboardView(),
+  initialLocation: onBorarding() ? Signin.route : OnboardView.route,
   routes: [
     GoRoute(
       path: HomeMainView.id,
