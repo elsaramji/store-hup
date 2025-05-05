@@ -12,7 +12,7 @@ import '../../components/factory/factory_tast.dart';
 import '../../components/futures/Auth/presentaion/forgetpassword/view/forget_password_viwe.dart';
 import '../../components/futures/Auth/presentaion/signin/views/Signin.dart';
 import '../../components/futures/Auth/presentaion/signup/view/signup_view_builder.dart';
-import '../../components/futures/onboarding/view/view_main.dart';
+import '../../components/futures/onboarding/view/bording_view.dart';
 
 Route<dynamic>? ongenerate(RouteSettings setting) {
   switch (setting.name) {

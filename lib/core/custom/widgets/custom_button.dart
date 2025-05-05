@@ -23,14 +23,10 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onPressed,
-      child: SizedBox(
-        height: 54,
-        width: double.infinity,
-        child: Center(
-          child: Text(
-            titel,
-            style: TextsStyle.bold16.copyWith(color: titelcolor),
-          ),
+      child: Center(
+        child: Text(
+          titel,
+          style: TextsStyle.bold16.copyWith(color: titelcolor),
         ),
       ),
       style: style ?? CustomButtonsStyle.primeryButtonstyle,

@@ -1,9 +1,10 @@
 // components/futures/onboarding/widgets/skip.dart
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/styles/color_style.dart';
 import '../../../../core/styles/font_style.dart';
-import '../logics/logics_onBoarding_goto.dart';
+import '../core/func/logics_onBoarding_goto.dart';
 
 class Skip extends StatelessWidget {
   const Skip({
@@ -16,11 +17,13 @@ class Skip extends StatelessWidget {
       onTap: () {
         LogicsOnBoardingGoto.startnow(context);
       },
-      child: Padding(
-        padding: const EdgeInsets.only(right: 21, top: 21),
-        child: Text(
-          "تخط",
-          style: TextsStyle.regular13.copyWith(color: AppColors.grayscale400),
+      child: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.only(right: 16.w, top: 8.h),
+          child: Text(
+            "تخط",
+            style: TextsStyle.regular13.copyWith(color: AppColors.grayscale400),
+          ),
         ),
       ),
     );

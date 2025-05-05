@@ -1,6 +1,7 @@
 // core/custom/Style/custom_buttons_style.dart
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../styles/color_style.dart';
 import '../../styles/font_style.dart';
@@ -12,6 +13,7 @@ class CustomButtonsStyle {
       overlayColor: AppColors.grayscale300,
       foregroundColor: AppColors.grayscale300,
       elevation: 0,
+      minimumSize: Size(1.0.sw, 54.h),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
       ));

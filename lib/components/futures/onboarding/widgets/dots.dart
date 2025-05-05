@@ -1,9 +1,9 @@
 // components/futures/onboarding/widgets/dots.dart
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:store_hup/components/futures/onboarding/data/bord_data.dart';
 
 import '../../../../core/styles/color_style.dart';
-
 
 class DotsPage extends StatelessWidget {
   const DotsPage({
@@ -16,11 +16,13 @@ class DotsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DotsIndicator(
-      dotsCount: 2,
+      animate: true,
+      animationDuration: const Duration(milliseconds: 600),
+      dotsCount: BordData.pagesdata.length,
       decorator: DotsDecorator(
         activeColor: AppColors.primaryColor,
         color: curnetpage != 1
-            ? AppColors.primaryColor.withOpacity(0.5)
+            ? AppColors.primaryColor.withAlpha(50)
             : AppColors.primaryColor,
       ),
     );

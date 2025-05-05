@@ -8,7 +8,7 @@ import 'package:store_hup/components/cart/views/product_cart_main_view.dart';
 import 'package:store_hup/components/factory/factory_tast.dart';
 import 'package:store_hup/components/futures/Auth/presentaion/forgetpassword/view/forget_password_viwe.dart';
 import 'package:store_hup/components/futures/Auth/presentaion/signin/views/Signin.dart';
-import 'package:store_hup/components/futures/onboarding/view/view_main.dart';
+import 'package:store_hup/components/futures/onboarding/view/bording_view.dart';
 import 'package:store_hup/core/constant/keys.dart';
 import 'package:store_hup/service/database/presence.dart';
 

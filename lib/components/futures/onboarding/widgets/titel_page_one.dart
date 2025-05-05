@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../../core/styles/color_style.dart';
 import '../../../../core/styles/font_style.dart';
 
-class Welcomemassage extends StatelessWidget {
-  const Welcomemassage({
+class TitelPageOne extends StatelessWidget {
+  const TitelPageOne({
     super.key,
   });
 

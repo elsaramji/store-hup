@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/custom/Style/custom_buttons_style.dart';
 import '../../../../core/custom/widgets/custom_button.dart';
 import '../../../../core/styles/color_style.dart';
-import '../logics/logics_onBoarding_goto.dart';
+import '../core/func/logics_onBoarding_goto.dart';
 
 class StartUpButton extends StatelessWidget {
   const StartUpButton({
@@ -17,22 +17,18 @@ class StartUpButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Visibility(
-      visible: curnetpage != 0 ? true : false,
-      maintainAnimation: true,
-      maintainSize: true,
-      maintainState: true,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: CustomButton(
-           titelcolor: AppColors.white,
-          titel: "ابدأ الان",
-          onPressed: () {
-            LogicsOnBoardingGoto.startnow(context);
-          },
-          style: CustomButtonsStyle.primeryButtonstyle,
-        ),
-      ),
-    );
+    return AnimatedSwitcher(
+        switchInCurve: Curves.easeInOut,
+        duration: const Duration(milliseconds: 600),
+        child: curnetpage == 1
+            ? CustomButton(
+                titelcolor: AppColors.white,
+                titel: "ابدأ الان",
+                onPressed: () {
+                  LogicsOnBoardingGoto.startnow(context);
+                },
+                style: CustomButtonsStyle.primeryButtonstyle,
+              )
+            : const SizedBox.shrink());
   }
 }
