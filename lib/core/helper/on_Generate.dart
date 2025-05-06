@@ -2,16 +2,17 @@
 
 import 'package:flutter/material.dart';
 import 'package:store_hup/components/cart/views/product_cart_main_view.dart';
+import 'package:store_hup/components/futures/Auth/forgetpassword/view/forget_password_viwe.dart';
+import 'package:store_hup/components/futures/Auth/signin/views/Signin.dart';
+import 'package:store_hup/components/futures/Auth/signup/view/signup_view_builder.dart';
 import 'package:store_hup/components/products/view/home_products_view.dart';
 import 'package:store_hup/components/profile/views/user_oder_viwe.dart';
 import 'package:store_hup/components/profile/views/user_profile_edit_viwe.dart';
 import 'package:store_hup/components/profile/views/user_profile_main_view.dart';
+
 import '../../components/Home/views/best_seller_viwe.dart';
 import '../../components/Home/views/home_view.dart';
 import '../../components/factory/factory_tast.dart';
-import '../../components/futures/Auth/presentaion/forgetpassword/view/forget_password_viwe.dart';
-import '../../components/futures/Auth/presentaion/signin/views/Signin.dart';
-import '../../components/futures/Auth/presentaion/signup/view/signup_view_builder.dart';
 import '../../components/futures/onboarding/view/bording_view.dart';
 
 Route<dynamic>? ongenerate(RouteSettings setting) {
@@ -25,10 +26,10 @@ Route<dynamic>? ongenerate(RouteSettings setting) {
     case Signup.route:
       return MaterialPageRoute(builder: (context) => const Signup());
 
-    case ForgetPasswordViwe.routeName:
+    case ForgetPasswordViwe.route:
       return MaterialPageRoute(builder: (context) => ForgetPasswordViwe());
 
-    case HomeMainView.id:
+    case HomeMainView.route:
       return MaterialPageRoute(builder: (context) => HomeMainView());
     case Factory.route:
       return MaterialPageRoute(builder: (context) => const Factory());

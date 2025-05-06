@@ -11,6 +11,7 @@ class CustomTextformField extends StatefulWidget {
   final String hinttext;
 
   final TextInputType keybordetepy;
+  final TextInputAction textInputAction;
   final void Function(String?)? onsaved;
   final void Function(String?)? onChanged;
   final String? initialValue;
@@ -18,6 +19,7 @@ class CustomTextformField extends StatefulWidget {
   final List<Icon>? suffixicons;
   CustomTextformField({
     super.key,
+    this.textInputAction = TextInputAction.next,
     this.initialValue,
     required this.keybordetepy,
     required this.hinttext,
@@ -39,6 +41,7 @@ class _CustomTextformFieldState extends State<CustomTextformField> {
       onChanged: widget.onChanged,
       onSaved: widget.onsaved,
       style: TextsStyle.semibold13,
+      textInputAction: widget.textInputAction,
       keyboardType: widget.keybordetepy,
       obscureText: widget.obscuretext,
       validator: (value) {

@@ -9,7 +9,7 @@ import 'package:store_hup/components/products/state_management/get_product_cubit
 
 // ignore: must_be_immutable
 class HomeMainView extends StatefulWidget {
-  static const String id = 'HomeView';
+  static const String route = '/home_view';
   int _selectedIndex = 0;
   Widget body = HomeViwebody();
 

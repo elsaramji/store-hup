@@ -48,8 +48,8 @@ class HomeViwebody extends StatelessWidget {
                     width: MediaQuery.sizeOf(context).width,
                     child: CustomScrollView(slivers: [
                       const SliverToBoxAdapter(child: SizedBox(height: 16)),
-                      CustomHomeAppBar(
-                        userName: "${usermodel.name}",
+                      const CustomHomeAppBar(
+                        userName: "mahmoud",
                       ),
                       const SliverToBoxAdapter(child: SizedBox(height: 12)),
                       CustomProductSearchBar(
