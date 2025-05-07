@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_hup/components/futures/Auth/data/blocs/google_signin_cubit/google_signin_cubit.dart';
 import 'package:store_hup/core/constant/context_value.dart';
 
 import '../../../../../../core/assets/assets_image.dart';
@@ -22,7 +23,7 @@ class SocialButtonSection extends StatelessWidget {
           title: "تسجيل بواسطة جوجل",
           iconphat: Assets.assetsImagesGoogle,
           onTouch: () {
-            BlocProvider.of<SigninCubit>(context).signinWithGoogle();
+            BlocProvider.of<GoogleSigninCubit>(context).signinWithGoogle();
           },
         ),
         context.verticalSizedBox16,

@@ -3,8 +3,6 @@ part of 'siginin_cubit_cubit.dart';
 
 class SigninState {}
 
-class SigininInitial extends SigninState {}
-
 class SigninLoading extends SigninState {}
 
 class SigninSuccess extends SigninState {

@@ -8,7 +8,7 @@ import '../../../core/injection/firebase/auth/auth_service.dart';
 part 'siginin_cubit_state.dart';
 
 class SigninCubit extends Cubit<SigninState> {
-  SigninCubit() : super(SigininInitial());
+  SigninCubit() : super(SigninState());
   FirebaseAuthService auth = getIt<FirebaseAuthService>();
   Future<void> signInWithemailandpassword(
       {required String email, required String password}) async {

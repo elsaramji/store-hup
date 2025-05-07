@@ -1,7 +1,9 @@
 // components/futures/Auth/signin/views/Signin.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_hup/components/futures/Auth/data/blocs/google_signin_cubit/google_signin_cubit.dart';
 import 'package:store_hup/components/futures/Auth/data/blocs/signin_cubit/signin_cubit_cubit.dart';
+import 'package:store_hup/components/futures/Auth/data/func/google_signin_listener.dart';
 import 'package:store_hup/components/futures/Auth/data/func/signin_listener.dart';
 import 'package:store_hup/components/futures/Auth/signin/widgets/main_viwe.dart';
 
@@ -19,15 +21,28 @@ class Signin extends StatelessWidget {
         context: context,
         title: 'تسجيل الدخول',
       ),
-      body: BlocProvider(
-        create: (context) => SigninCubitCubit(),
+      body: MultiBlocProvider(
+        providers: [
+          BlocProvider<SigninCubitCubit>(
+            create: (context) => SigninCubitCubit(),
+          ),
+          BlocProvider<GoogleSigninCubit>(
+            create: (context) => GoogleSigninCubit(),
+          ),
+        ],
         child: Builder(builder: (context) {
-          return BlocListener<SigninCubitCubit, SigninCubitState>(
-            listener: (context, state) {
-              signinListener(state, context);
-            },
-            child: const SinginMainViwe(),
-          );
+          return MultiBlocListener(listeners: [
+            BlocListener<SigninCubitCubit, SigninCubitState>(
+              listener: (context, state) {
+                signinWithEmailandPasswordListener(state, context);
+              },
+            ),
+            BlocListener<GoogleSigninCubit, GoogleSigninState>(
+              listener: (context, state) {
+                googleSigninListener(state, context);
+              },
+            )
+          ], child: const SinginMainViwe());
         }),
       ),
     );
