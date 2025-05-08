@@ -44,15 +44,15 @@ class Resete extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     spacing: 16,
                     children: [
-                      const Row(
+                      Row(
                         children: [
                           Expanded(
                               child:
                                   Text("المنتجات", style: TextsStyle.bold16)),
-                          Spacer(),
+                          const Spacer(),
                           Expanded(
                               child: Text("الكمية", style: TextsStyle.bold16)),
-                          Spacer(),
+                          const Spacer(),
                           Expanded(
                               child: Text("السعر", style: TextsStyle.bold16)),
                         ],

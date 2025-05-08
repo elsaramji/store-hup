@@ -3,10 +3,10 @@ import 'package:store_hup/components/futures/Auth/domain/core_entities/user_enti
 
 class UserModel extends UserEntity {
   UserModel({
-    required super.id,
+     super.id,
     required super.name,
     required super.email,
-    required super.phone,
+    super.phone,
     super.favorite,
     super.cart,
     super.orders,

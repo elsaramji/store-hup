@@ -45,7 +45,7 @@ class _ProductCartMainViewState extends State<ProductCartMainView> {
               margin: const EdgeInsets.symmetric(horizontal: 16),
               child: CustomScrollView(slivers: [
                 SliverAppBar(
-                  title: const Text("سلة المشتريات", style: TextsStyle.bold16),
+                  title: Text("سلة المشتريات", style: TextsStyle.bold16),
                   centerTitle: true,
                   pinned: true,
                   leading: IconButton(

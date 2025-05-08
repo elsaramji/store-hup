@@ -6,7 +6,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:store_hup/components/futures/Auth/signin/views/Signin.dart';
-
 import 'package:store_hup/components/profile/views/user_oder_viwe.dart';
 import 'package:store_hup/components/profile/views/user_profile_edit_viwe.dart';
 import 'package:store_hup/components/profile/views/widgets/setting_item.dart';
@@ -73,7 +72,7 @@ class _UserProfileState extends State<UserProfile> {
                 margin: const EdgeInsets.only(top: 12),
                 height: 38,
                 width: MediaQuery.of(context).size.width,
-                child: const Text(
+                child: Text(
                   "عام",
                   style: TextsStyle.semibold13,
                 ),

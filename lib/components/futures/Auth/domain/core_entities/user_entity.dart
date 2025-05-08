@@ -1,5 +1,5 @@
 abstract class UserEntity {
-  final String id;
+  final String? id;
   final String name;
   final String email;
   final String? phone;
@@ -11,7 +11,7 @@ abstract class UserEntity {
   final String? token;
 
   UserEntity({
-    required this.id,
+    this.id,
     required this.name,
     required this.email,
     this.phone,

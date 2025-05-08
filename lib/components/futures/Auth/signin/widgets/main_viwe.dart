@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:store_hup/components/futures/Auth/signin/widgets/dont_have_account.dart';
 import 'package:store_hup/components/futures/Auth/signin/widgets/singin_textfilds.dart';
 import 'package:store_hup/components/futures/Auth/signin/widgets/social_auth_buttons.dart';
-
 import 'package:store_hup/core/constant/context_value.dart';
+
 import '../../../../../../core/custom/widgets/custom_or_divider.dart';
 
 class SinginMainViwe extends StatelessWidget {
@@ -25,10 +25,10 @@ class SinginMainViwe extends StatelessWidget {
               const SigninForm(),
 
               // NotHaveAccount
-              context.verticalSizedBox32,
+              context.verticalSizedBox16,
               const DonthaveAccount(),
               // OrDivider
-              context.verticalSizedBox32,
+              context.verticalSizedBox16,
               const CustomOrDivider(),
               // SocialButtonSection
               const SocialButtonSection()

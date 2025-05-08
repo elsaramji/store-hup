@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../../../core/styles/color_style.dart';
 import '../../../../../../core/styles/font_style.dart';
-
 import '../logics/logics_singin_goto.dart';
 
 class DonthaveAccount extends StatelessWidget {
@@ -20,11 +19,11 @@ class DonthaveAccount extends StatelessWidget {
         Text.rich(TextSpan(children: [
           TextSpan(
               text: "ليس لديك حساب ؟ ",
-              style: TextsStyle.semibold16
+              style: TextsStyle.semibold13
                   .copyWith(color: AppColors.grayscale400)),
           TextSpan(
               text: "انشاء حساب",
-              style: TextsStyle.semibold16.copyWith(color: AppColors.green1500),
+              style: TextsStyle.semibold13.copyWith(color: AppColors.green1500),
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
                   SigninLogicsGoto.gotoSignup(context);

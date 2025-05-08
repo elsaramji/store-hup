@@ -44,7 +44,7 @@ class _AddressFormState extends State<AddressForm> {
             Column(
               children: [
                 Row(children: [
-                  const Text("الاجمالي", style: TextsStyle.regular16),
+                   Text("الاجمالي", style: TextsStyle.regular16),
                   const Spacer(),
                   Text("${totelCart()} جنية", style: TextsStyle.bold16)
                 ]),
