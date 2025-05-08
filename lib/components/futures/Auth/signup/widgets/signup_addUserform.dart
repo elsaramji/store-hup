@@ -1,6 +1,7 @@
 // components/futures/Auth/signup/widgets/signup_addUserform.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../../../core/constant/items.dart';
 import '../../../../../core/custom/widgets/custom_errors_massage.dart';
 import '../../../../../core/custom/widgets/custom_text_filed.dart';
@@ -35,23 +36,17 @@ class _AddUserFormState extends State<AddUserForm> {
           CustomTextformField(
             keybordetepy: TextInputType.name,
             hinttext: "الاسم كامل",
-            onsaved: (value) {
-              name = value!;
-            },
+           
           ),
           const SizedBox(height: 16),
           CustomTextformField(
             keybordetepy: TextInputType.emailAddress,
             hinttext: "البريد الالكتروني",
-            onsaved: (value) {
-              email = value!;
-            },
+          
           ),
           const SizedBox(height: 16),
           CustomTextformField(
-            onsaved: (value) {
-              password = value!;
-            },
+             
             keybordetepy: TextInputType.visiblePassword,
             hinttext: "كلمة المرور",
             obscuretext: true,
@@ -65,9 +60,7 @@ class _AddUserFormState extends State<AddUserForm> {
           ),
           const SizedBox(height: 30),
           SignupButton(
-            onPressed: () {
-              creataAccount(context);
-            },
+            onPressed: () {},
           ),
         ],
       ),

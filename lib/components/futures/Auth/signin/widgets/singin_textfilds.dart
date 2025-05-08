@@ -31,9 +31,6 @@ class _SigninFormState extends State<SigninForm> {
             controller: emailcontroller,
             keybordetepy: TextInputType.emailAddress,
             hinttext: "البريد الالكتروني",
-            onsaved: (value) {
-              emailcontroller.text = value!;
-            },
           ),
           context.verticalSizedBox16,
           CustomTextformField(
@@ -41,9 +38,6 @@ class _SigninFormState extends State<SigninForm> {
             keybordetepy: TextInputType.visiblePassword,
             hinttext: "كلمة المرور",
             obscuretext: true,
-            onsaved: (value) {
-              passwordcontroller.text = value!;
-            },
             suffixicons: Items.visiibleIcons,
           ),
           context.verticalSizedBox16,

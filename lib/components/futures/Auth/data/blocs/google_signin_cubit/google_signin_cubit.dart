@@ -11,7 +11,7 @@ class GoogleSigninCubit extends Cubit<GoogleSigninState> {
 
   void signinWithGoogle() async {
     emit(GoogleSigninLoading());
-    final result = await SinginFirebaseServices().signinWithGoogle();
+    final result = await SigninFirebaseServices().signinWithGoogle();
     result.fold(
       (l) => emit(GoogleSigninError(l)),
       (r) => emit(GoogleSigninSuccess(userEntity: r)),

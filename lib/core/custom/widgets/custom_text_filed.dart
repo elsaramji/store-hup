@@ -12,7 +12,7 @@ class CustomTextformField extends StatefulWidget {
 
   final TextInputType keybordetepy;
   final TextInputAction textInputAction;
-  final void Function(String?)? onsaved;
+ 
   final void Function(String?)? onChanged;
   final String? initialValue;
   bool obscuretext;
@@ -24,10 +24,11 @@ class CustomTextformField extends StatefulWidget {
     this.initialValue,
     required this.keybordetepy,
     required this.hinttext,
-    this.onsaved,
+    
     this.onChanged,
     this.obscuretext = false,
-    this.suffixicons, this.controller,
+    this.suffixicons,
+    this.controller,
   });
 
   @override
@@ -41,7 +42,9 @@ class _CustomTextformFieldState extends State<CustomTextformField> {
       controller: widget.controller,
       initialValue: widget.initialValue,
       onChanged: widget.onChanged,
-      onSaved: widget.onsaved,
+      onSaved: (value) {
+        widget.controller!.text = value!;
+      },
       style: TextsStyle.semibold13,
       textInputAction: widget.textInputAction,
       keyboardType: widget.keybordetepy,

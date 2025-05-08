@@ -5,11 +5,10 @@ import 'package:go_router/go_router.dart';
 import 'package:store_hup/components/futures/Auth/forgetpassword/view/forget_password_viwe.dart';
 import 'package:store_hup/components/futures/Auth/signup/view/signup_view_builder.dart';
 
-
 class SigninLogicsGoto {
   static void gotoSignup(BuildContext context) {
     //Navigator.pushNamed(context, Signup.route);
-    context.push(Signup.route);
+    context.push(SignupMainviwe.route);
   }
 
   static void gotoForgetpassword(BuildContext context) {

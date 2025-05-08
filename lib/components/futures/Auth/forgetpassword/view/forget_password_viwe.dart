@@ -18,7 +18,7 @@ import '../../../../../service/state_management/forgetpassword_cubit/forgetpassw
 // ignore: must_be_immutable
 class ForgetPasswordViwe extends StatelessWidget {
   static const route = '/forgetPasswordViwe';
-  late String email;
+  TextEditingController emailcontroller = TextEditingController();
   final formKey = GlobalKey<FormState>();
   ForgetPasswordViwe({Key? key}) : super(key: key);
   @override
@@ -56,11 +56,9 @@ class ForgetPasswordViwe extends StatelessWidget {
                     ),
                     context.verticalSizedBox30,
                     CustomTextformField(
+                      controller: emailcontroller,
                       keybordetepy: TextInputType.emailAddress,
                       hinttext: "البريد الالكتروني",
-                      onsaved: (value) {
-                        email = value!;
-                      },
                     ),
                     context.verticalSizedBox30,
                     CustomButton(
@@ -70,7 +68,7 @@ class ForgetPasswordViwe extends StatelessWidget {
                           if (formKey.currentState!.validate()) {
                             formKey.currentState!.save();
                             BlocProvider.of<ForgetpasswordCubit>(context)
-                                .forgetPassword(email);
+                                .forgetPassword(emailcontroller.text);
                           }
                         }),
                     Padding(

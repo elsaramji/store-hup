@@ -23,8 +23,8 @@ Route<dynamic>? ongenerate(RouteSettings setting) {
     case Signin.route:
       return MaterialPageRoute(builder: (context) => const Signin());
 
-    case Signup.route:
-      return MaterialPageRoute(builder: (context) => const Signup());
+    case SignupMainviwe.route:
+      return MaterialPageRoute(builder: (context) =>  SignupMainviwe());
 
     case ForgetPasswordViwe.route:
       return MaterialPageRoute(builder: (context) => ForgetPasswordViwe());

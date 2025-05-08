@@ -2,7 +2,7 @@ abstract class UserEntity {
   final String id;
   final String name;
   final String email;
-  final String phone;
+  final String? phone;
   final String? imageUrl;
   final List<dynamic>? favorite;
   final List<dynamic>? cart;
@@ -14,7 +14,7 @@ abstract class UserEntity {
     required this.id,
     required this.name,
     required this.email,
-    required this.phone,
+    this.phone,
     this.imageUrl,
     this.favorite,
     this.cart,

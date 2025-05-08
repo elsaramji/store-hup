@@ -14,7 +14,7 @@ class SigninCubitCubit extends Cubit<SigninCubitState> {
     required String password,
   }) async {
     emit(SigninCubitLoading());
-    final result = await SinginFirebaseServices().signinWithEmailAndPassword(
+    final result = await SigninFirebaseServices().signinWithEmailAndPassword(
       email: email,
       password: password,
     );

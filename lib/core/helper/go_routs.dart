@@ -15,7 +15,6 @@ import 'package:store_hup/service/database/presence.dart';
 
 bool onBorarding() => Preferences.getBool(Keys.isviewedOnBoarding);
 final GoRouter router = GoRouter(
-
   initialLocation: onBorarding() ? Signin.route : OnboardView.route,
   routes: [
     GoRoute(
@@ -47,12 +46,11 @@ final GoRouter router = GoRouter(
       pageBuilder: (context, state) => _easyTransition(const Signin()),
     ),
     GoRoute(
-      path: Signup.route,
-      pageBuilder: (context, state) => _easyTransition(const Signup()),
+      path: SignupMainviwe.route,
+      pageBuilder: (context, state) => _easyTransition( SignupMainviwe()),
     ),
   ],
 );
-
 
 CustomTransitionPage _easyTransition(Widget child) {
   return CustomTransitionPage(
