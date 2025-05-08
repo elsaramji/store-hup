@@ -1,7 +1,5 @@
 // components/futures/Auth/signin/widgets/singin_textfilds.dart
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_hup/components/futures/Auth/data/blocs/signin_cubit/signin_cubit_cubit.dart';
 import 'package:store_hup/components/futures/Auth/signin/widgets/forgetpassword.dart';
 import 'package:store_hup/components/futures/Auth/signin/widgets/login_Button.dart';
 import 'package:store_hup/core/constant/context_value.dart';
@@ -20,7 +18,8 @@ class SigninForm extends StatefulWidget {
 
 class _SigninFormState extends State<SigninForm> {
   final formkey = GlobalKey<FormState>();
-  late String email, password;
+  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController passwordcontroller = TextEditingController();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   @override
   Widget build(BuildContext context) {
@@ -29,33 +28,32 @@ class _SigninFormState extends State<SigninForm> {
       child: Column(
         children: [
           CustomTextformField(
+            controller: emailcontroller,
             keybordetepy: TextInputType.emailAddress,
             hinttext: "البريد الالكتروني",
             onsaved: (value) {
-              email = value!;
+              emailcontroller.text = value!;
             },
           ),
           context.verticalSizedBox16,
           CustomTextformField(
+            controller: passwordcontroller,
             keybordetepy: TextInputType.visiblePassword,
             hinttext: "كلمة المرور",
             obscuretext: true,
             onsaved: (value) {
-              password = value!;
+              passwordcontroller.text = value!;
             },
             suffixicons: Items.visiibleIcons,
           ),
           context.verticalSizedBox16,
           const NavigateForgetpassword(),
           context.verticalSizedBox16,
-          SigninButton(onPressed: () {
-            if (formkey.currentState!.validate()) {
-              formkey.currentState!.save();
-              context
-                  .read<SigninCubitCubit>()
-                  .signinWithemailAndPassword(email: email, password: password);
-            }
-          }),
+          SigninButton(
+              formkey: formkey,
+              emailcontroller: emailcontroller,
+              passwordcontroller: passwordcontroller,
+              context: context),
         ],
       ),
     );

@@ -17,6 +17,7 @@ class CustomTextformField extends StatefulWidget {
   final String? initialValue;
   bool obscuretext;
   final List<Icon>? suffixicons;
+  final TextEditingController? controller;
   CustomTextformField({
     super.key,
     this.textInputAction = TextInputAction.next,
@@ -26,7 +27,7 @@ class CustomTextformField extends StatefulWidget {
     this.onsaved,
     this.onChanged,
     this.obscuretext = false,
-    this.suffixicons,
+    this.suffixicons, this.controller,
   });
 
   @override
@@ -37,6 +38,7 @@ class _CustomTextformFieldState extends State<CustomTextformField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: widget.controller,
       initialValue: widget.initialValue,
       onChanged: widget.onChanged,
       onSaved: widget.onsaved,

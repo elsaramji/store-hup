@@ -8,6 +8,7 @@ void signinWithEmailandPasswordListener(
   if (state is SigninCubitLoading) {
     loadingDialog(context);
   } else if (state is SigninCubitError) {
+    Navigator.of(context, rootNavigator: true).pop();
     ErrorsMassage.errorsBar(context, state.error.errorMassage);
   } else if (state is SigninCubitSuccess) {
     Navigator.of(context, rootNavigator: true).pop();

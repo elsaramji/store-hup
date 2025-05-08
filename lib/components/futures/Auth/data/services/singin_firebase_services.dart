@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:store_hup/components/futures/Auth/data/models/errors/signin_error_mode.dart';
 import 'package:store_hup/components/futures/Auth/data/models/user_model.dart';
@@ -18,14 +21,28 @@ class SinginFirebaseServices extends SigninAuthRepoEntity {
     } on FirebaseAuthException catch (e) {
       return left(SigninErrorModel.fromFirebaseAuthException(e));
     } catch (e) {
-      return left(SigninErrorModel(errorMassage: 'خطأ غير متوقع'));
+      return left(SigninErrorModel(
+          errorMassage: "ربما لم تتكمل عملية التسجيل الرجاء اعادة المحاولة"));
     }
   }
 
   @override
-  Future<Either<SigninErrorsEntity, UserEntity>> signinWithFacebook() {
-    // TODO: implement signinWithFacebook
-    throw UnimplementedError();
+  Future<Either<SigninErrorsEntity, UserEntity>> signinWithFacebook() async {
+    LoginResult? result;
+    try {
+      result = await FacebookAuth.instance.login();
+      final credential =
+          FacebookAuthProvider.credential(result.accessToken!.token);
+      final userCredential =
+          await FirebaseAuth.instance.signInWithCredential(credential);
+      return right(UserModel.fromFirebase(userCredential.user!));
+    } on FirebaseAuthException catch (e) {
+      return left(SigninErrorModel.fromFirebaseAuthException(e));
+    } catch (e) {
+      log(e.toString());
+      return left(SigninErrorModel(
+          errorMassage: "ربما لم تتكمل عملية التسجيل الرجاء اعادة المحاولة"));
+    }
   }
 
   @override
@@ -45,7 +62,8 @@ class SinginFirebaseServices extends SigninAuthRepoEntity {
     } on FirebaseAuthException catch (e) {
       return left(SigninErrorModel.fromFirebaseAuthException(e));
     } catch (e) {
-      return left(SigninErrorModel(errorMassage: 'خطأ غير متوقع'));
+      return left(SigninErrorModel(
+          errorMassage: 'ربما لم تتكمل عملية التسجيل الرجاء اعادة المحاولة'));
     }
   }
 }

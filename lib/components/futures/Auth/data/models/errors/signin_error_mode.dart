@@ -23,7 +23,8 @@ class SigninErrorModel extends SigninErrorsEntity {
         return SigninErrorModel(
             errorMassage: 'ربما هناك خطا فى البريد الالكتروني او كلمة المرور');
       default:
-        return SigninErrorModel(errorMassage: 'خطأ غير متوقع');
+        return SigninErrorModel(
+            errorMassage: 'ربما هناك مشكلة الرجاء المحاولة لاحقا');
     }
   }
 }
