@@ -1,6 +1,7 @@
 // core/custom/widgets/custom_Appbar.dart
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../styles/color_style.dart';
 import '../../styles/font_style.dart';
@@ -16,7 +17,7 @@ AppBar customAppBar({
       child: Visibility(
         visible: iconleading != null ? true : false,
         child: GestureDetector(
-          onTap: () => Navigator.pop(context),
+          onTap: () => context.pop(),
           child: iconleading,
         ),
       ),
