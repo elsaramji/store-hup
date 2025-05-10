@@ -1,8 +1,8 @@
 // service/state_management/forgetpassword_cubit/forgetpassword_cubit.dart
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:store_hup/core/injection/Git_it.dart';
-import 'package:store_hup/core/injection/firebase/data/firebaseDataService.dart';
+import '../../../core/injection/Git_it.dart';
+import '../../../core/injection/firebase/data/firebaseDataService.dart';
 
 import '../../../core/constant/end_points.dart';
 import '../../../core/injection/firebase/auth/auth_service.dart';

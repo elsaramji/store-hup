@@ -1,6 +1,6 @@
 // service/state_management/sginin_cubit/siginin_cubit_cubit.dart
 import 'package:bloc/bloc.dart';
-import 'package:store_hup/core/injection/Git_it.dart';
+import '../../../core/injection/Git_it.dart';
 
 import '../../../core/models/user_entity.dart';
 import '../../../core/injection/firebase/auth/auth_service.dart';

@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
-import 'package:store_hup/service/paymet/api_keys.dart';
+import 'api_keys.dart';
 
 abstract class StripePayment {
   static Future<void> makePayment(int amount) async {

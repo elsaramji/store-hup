@@ -1,17 +1,23 @@
 // routes.dart
 
-import 'package:flutter/material.dart';
+
+
+
+
+
+import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
-import 'package:store_hup/components/Home/views/best_seller_viwe.dart';
-import 'package:store_hup/components/Home/views/home_view.dart';
-import 'package:store_hup/components/cart/views/product_cart_main_view.dart';
-import 'package:store_hup/components/factory/factory_tast.dart';
-import 'package:store_hup/components/futures/Auth/forgetpassword/view/forget_password_viwe.dart';
-import 'package:store_hup/components/futures/Auth/signin/views/Signin.dart';
-import 'package:store_hup/components/futures/Auth/signup/view/signup_view_builder.dart';
-import 'package:store_hup/components/futures/onboarding/view/bording_view.dart';
-import 'package:store_hup/core/constant/keys.dart';
-import 'package:store_hup/service/database/presence.dart';
+
+import '../../features/Auth/presentetion/views/forget_password_viwe.dart';
+import '../../features/Auth/presentetion/views/signin_view.dart';
+import '../../features/Auth/presentetion/views/signup_view.dart';
+import '../../features/Home/views/best_seller_viwe.dart';
+import '../../features/Home/views/home_view.dart';
+import '../../features/cart/views/product_cart_main_view.dart';
+import '../../features/factory/factory_tast.dart';
+import '../../features/onboarding/view/bording_view.dart';
+import '../../service/database/presence.dart';
+import '../constant/keys.dart';
 
 bool onBorarding() => Preferences.getBool(Keys.isviewedOnBoarding);
 final GoRouter router = GoRouter(

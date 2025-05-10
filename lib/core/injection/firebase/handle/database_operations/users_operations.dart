@@ -1,6 +1,6 @@
 // service/firebase/handle/database_operations/users_operations.dart
 
-import 'package:store_hup/core/injection/firebase/data/firebaseDataService.dart';
+import '../../data/firebaseDataService.dart';
 
 import '../../../../../../core/constant/end_points.dart';
 import '../../../../../../core/models/user_entity.dart';

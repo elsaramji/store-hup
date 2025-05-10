@@ -1,5 +1,5 @@
-import 'package:store_hup/core/models/user_entity.dart';
-import 'package:store_hup/service/database/presence.dart';
+import '../models/user_entity.dart';
+import '../../service/database/presence.dart';
 
 class FutchUserDataFromPreference {
   FutchUserDataFromPreference();

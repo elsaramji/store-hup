@@ -5,8 +5,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:store_hup/components/product_details_view/product_grid_view.dart';
-import 'package:store_hup/components/products/widget/products_tap/scrrolled_products%20_bar.dart';
+import 'package:store_hup/features/product_details_view/product_grid_view.dart';
+import 'package:store_hup/features/products/widget/products_tap/scrrolled_products%20_bar.dart';
 
 import '../../../../../core/custom/widgets/alert_error.dart';
 

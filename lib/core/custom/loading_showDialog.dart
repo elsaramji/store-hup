@@ -1,6 +1,6 @@
   import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:store_hup/core/styles/color_style.dart';
+import '../styles/color_style.dart';
 
 Future loadingDialog(BuildContext context) {
     return showDialog(

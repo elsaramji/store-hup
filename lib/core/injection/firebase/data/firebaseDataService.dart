@@ -1,8 +1,8 @@
 // service/firebase/data/firebaseDataService.dart
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:store_hup/core/exceptions/auth_excaption.dart';
-import 'package:store_hup/core/models/user_entity.dart';
+import '../../../exceptions/auth_excaption.dart';
+import '../../../models/user_entity.dart';
 
 class FirebaseDataService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;

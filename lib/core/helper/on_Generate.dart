@@ -1,18 +1,19 @@
 // core/helper/on_Generate.dart
 
+
 import 'package:flutter/material.dart';
-import 'package:store_hup/components/cart/views/product_cart_main_view.dart';
-import 'package:store_hup/components/futures/Auth/forgetpassword/view/forget_password_viwe.dart';
-import 'package:store_hup/components/futures/Auth/signin/views/Signin.dart';
-import 'package:store_hup/components/futures/Auth/signup/view/signup_view_builder.dart';
-import 'package:store_hup/components/products/view/home_products_view.dart';
-import 'package:store_hup/components/profile/views/user_oder_viwe.dart';
-import 'package:store_hup/components/profile/views/user_profile_edit_viwe.dart';
-import 'package:store_hup/components/profile/views/user_profile_main_view.dart';
-import '../../components/Home/views/best_seller_viwe.dart';
-import '../../components/Home/views/home_view.dart';
-import '../../components/factory/factory_tast.dart';
-import '../../components/futures/onboarding/view/bording_view.dart';
+import '../../features/Auth/presentetion/views/forget_password_viwe.dart';
+import '../../features/Auth/presentetion/views/signin_view.dart';
+import '../../features/Auth/presentetion/views/signup_view.dart';
+import '../../features/Home/views/best_seller_viwe.dart';
+import '../../features/Home/views/home_view.dart';
+import '../../features/cart/views/product_cart_main_view.dart';
+import '../../features/factory/factory_tast.dart';
+import '../../features/onboarding/view/bording_view.dart';
+import '../../features/products/view/home_products_view.dart';
+import '../../features/profile/views/user_oder_viwe.dart';
+import '../../features/profile/views/user_profile_edit_viwe.dart';
+import '../../features/profile/views/user_profile_main_view.dart';
 
 Route<dynamic>? ongenerate(RouteSettings setting) {
   switch (setting.name) {

@@ -1,6 +1,6 @@
 // core/models/cart.dart
 
-import 'package:store_hup/core/models/product.dart';
+import 'product.dart';
 
 class Cart {
   final Product product;
