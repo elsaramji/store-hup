@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/styles/color_style.dart';
 import '../../../../core/styles/font_style.dart';
-import '../contoral/go_back_action.dart';
+import '../contoral/actions/go_back_action.dart';
 
 class HaveAccount extends StatelessWidget {
   const HaveAccount({

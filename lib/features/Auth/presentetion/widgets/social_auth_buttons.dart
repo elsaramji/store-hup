@@ -8,7 +8,7 @@ import '../../../../core/constant/context_value.dart';
 import '../../../../core/assets/assets_image.dart';
 import '../../../../core/custom/widgets/custom_social_button.dart';
 import '../blocs/signin_facebook_cubit/signin_with_facebook_cubit.dart';
-import '../contoral/signin_with_google_action.dart';
+import '../contoral/actions/signin_with_google_action.dart';
 
 class SocialButtonSection extends StatelessWidget {
   const SocialButtonSection({

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../blocs/signin_cubit/signin_cubit_cubit.dart';
+import '../../blocs/signin_cubit/signin_cubit_cubit.dart';
 
 void signinWithEmailandpasswordAction(
     BuildContext context,
