@@ -5,7 +5,6 @@ import '../../../data/repoimp/serviecs/firebase/signup_firebase_services.dart';
 import '../../../domain/entities/signup_errors_entity.dart';
 import '../../../domain/entities/user_entity.dart';
 
-
 part 'signupwith_emailand_password_state.dart';
 
 class SignupwithEmailandPasswordCubit
@@ -15,9 +14,9 @@ class SignupwithEmailandPasswordCubit
   void signupWithEmailAndPassword({
     required UserEntity userEntity,
     required String password,
-  }) async{
+  }) async {
     emit(SignupwithEmailandPasswordLoading());
-    final result = await SignupFirebaseServices()
+    final result = await SignupFirebaseServicesImp()
         .signupWithEmailAndPassword(userEntity, password);
     result.fold(
       (l) => emit(SignupwithEmailandPasswordError(error: l)),

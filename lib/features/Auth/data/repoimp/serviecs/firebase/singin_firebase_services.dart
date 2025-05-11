@@ -10,8 +10,11 @@ import '../../../../domain/entities/user_entity.dart';
 import '../../../../domain/repos/sing_in_repo/signin_auth_repo_entity.dart';
 import '../../../models/signin_error_mode.dart';
 import '../../../models/user_model.dart';
+import 'userdata_firebase_services.dart';
 
-class SigninFirebaseServices extends SigninAuthRepoEntity {
+class SigninFirebaseServicesImp extends SigninAuthRepoEntity {
+  UserdataFirebaseServicesImp userDataFirebaseServicesObj =
+      UserdataFirebaseServicesImp();
   @override
   Future<Either<SigninErrorsEntity, UserEntity>> signinWithEmailAndPassword(
       {required String email, required String password}) async {
@@ -36,6 +39,9 @@ class SigninFirebaseServices extends SigninAuthRepoEntity {
           FacebookAuthProvider.credential(result.accessToken!.token);
       final userCredential =
           await FirebaseAuth.instance.signInWithCredential(credential);
+      await userDataFirebaseServicesObj.addUserData(
+        UserModel.fromFirebase(userCredential.user!),
+      );
       return right(UserModel.fromFirebase(userCredential.user!));
     } on FirebaseAuthException catch (e) {
       return left(SigninErrorModel.fromFirebaseAuthException(e));
@@ -59,10 +65,15 @@ class SigninFirebaseServices extends SigninAuthRepoEntity {
       final userCredential = await FirebaseAuth.instance.signInWithCredential(
         credential,
       );
+      log(userCredential.user!.photoURL.toString());
+      await userDataFirebaseServicesObj.addUserData(
+        UserModel.fromFirebase(userCredential.user!),
+      );
       return right(UserModel.fromFirebase(userCredential.user!));
     } on FirebaseAuthException catch (e) {
       return left(SigninErrorModel.fromFirebaseAuthException(e));
     } catch (e) {
+      log(e.toString());
       return left(SigninErrorModel(
           errorMassage: 'ربما لم تتكمل عملية التسجيل الرجاء اعادة المحاولة'));
     }

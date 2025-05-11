@@ -11,7 +11,7 @@ class SigninWithFacebookCubit extends Cubit<SigninWithFacebookState> {
   SigninWithFacebookCubit() : super(SigninWithFacebookInitial());
   void signinWithFacebook() async {
     emit(SigninWithFacebookLoading());
-    final result = await SigninFirebaseServices().signinWithFacebook();
+    final result = await SigninFirebaseServicesImp().signinWithFacebook();
     result.fold(
       (l) => emit(SigninWithFacebookError(error: l)),
       (r) => emit(SigninWithFacebookSuccess(user: r)),

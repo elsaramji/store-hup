@@ -4,7 +4,7 @@ import '../../domain/entities/user_entity.dart';
 
 class UserModel extends UserEntity {
   UserModel({
-     super.id,
+    super.id,
     required super.name,
     required super.email,
     super.phone,
@@ -13,6 +13,7 @@ class UserModel extends UserEntity {
     super.orders,
     super.address,
     super.token,
+    super.imageUrl,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
@@ -26,6 +27,21 @@ class UserModel extends UserEntity {
       orders: json['orders'] as List<dynamic>?,
       address: json['address'] as List<dynamic>?,
       token: json['token'] as String?,
+      imageUrl: json['imageUrl'] as String?,
+    );
+  }
+  factory UserModel.toObject(UserEntity user) {
+    return UserModel(
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      phone: user.phone,
+      favorite: user.favorite,
+      cart: user.cart,
+      orders: user.orders,
+      address: user.address,
+      token: user.token,
+      imageUrl: user.imageUrl,
     );
   }
   Map<String, dynamic> toJson() {
@@ -39,6 +55,7 @@ class UserModel extends UserEntity {
       'orders': orders,
       'address': address,
       'token': token,
+      'imageUrl': imageUrl,
     };
   }
 
@@ -47,6 +64,7 @@ class UserModel extends UserEntity {
       name: user.displayName ?? 'No Name',
       email: user.email ?? 'No Email',
       id: user.uid,
+      imageUrl: user.photoURL ?? 'No Image',
       phone: user.phoneNumber ?? 'No Phone',
     );
   }
