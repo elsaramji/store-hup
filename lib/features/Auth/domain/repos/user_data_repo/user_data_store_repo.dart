@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-
 import '../../entities/user_data_errors_entity.dart';
 import '../../entities/user_entity.dart';
 
