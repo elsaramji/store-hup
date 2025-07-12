@@ -2,7 +2,7 @@
 
 
 
-# ⚠️⚠️Under Refactoring For Applying Maintainable Architecture ⚠️⚠️
+# ⚠️Under Refactoring For Applying Maintainable Architecture 
 
 **Fruit Store App** هو تطبيق لبيع الفواكه الطازجة عبر الإنترنت، حيث يمكنك تصفح الفواكه، إضافتها إلى السلة، وإتمام عملية الشراء بسهولة.  
 
