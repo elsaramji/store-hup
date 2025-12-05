@@ -52,9 +52,10 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDUFax45eXKI5Khug76xzXq_Htxa2udygs',
-    appId: '1:23035564503:android:5310fcf51e30356882bb92',
+    appId: '1:23035564503:android:aef2b3a16670630082bb92',
     messagingSenderId: '23035564503',
     projectId: 'fruitshub-dcc6e',
+    databaseURL: 'https://fruitshub-dcc6e-default-rtdb.firebaseio.com',
     storageBucket: 'fruitshub-dcc6e.firebasestorage.app',
   );
 

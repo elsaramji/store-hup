@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">store_hup</string>
-    <string name="hello_world">Hello World!</string>
-    <string name="facebook_app_id">1364205568191164</string>
-    <string name="fb_login_protocol_scheme">fb1364205568191164</string>
-    <string name="facebook_client_token">1364205568191164</string>
-</resources>

@@ -1,20 +1,29 @@
 {
   "project_info": {
     "project_number": "23035564503",
+    "firebase_url": "https://fruitshub-dcc6e-default-rtdb.firebaseio.com",
     "project_id": "fruitshub-dcc6e",
     "storage_bucket": "fruitshub-dcc6e.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:23035564503:android:97c6cefc1336da9182bb92",
+        "mobilesdk_app_id": "1:23035564503:android:6b83537d416554ed82bb92",
         "android_client_info": {
           "package_name": "com.example.furits_control"
         }
       },
       "oauth_client": [
         {
-          "client_id": "23035564503-ng21jdg6714o60qqua0i48otsfc8gtqq.apps.googleusercontent.com",
+          "client_id": "23035564503-bdidd277sr5gdbt9ipucnp5m9ba2b3nj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.furits_control",
+            "certificate_hash": "acf6bce70ba5d2641a824dba9d2f18f5a0207538"
+          }
+        },
+        {
+          "client_id": "23035564503-pqp1h4pahfku9udp8tbt98ftrm03veri.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -31,10 +40,10 @@
               "client_type": 3
             },
             {
-              "client_id": "23035564503-gnsm46o5vcbeee8irlltmulupagu1c2p.apps.googleusercontent.com",
+              "client_id": "23035564503-5n1gmtvei5dcg0onv64uqk9unhmql71l.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.furitsControl"
+                "bundle_id": "com.example.fruitstoredachbored"
               }
             }
           ]
@@ -43,14 +52,14 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:23035564503:android:5310fcf51e30356882bb92",
+        "mobilesdk_app_id": "1:23035564503:android:aef2b3a16670630082bb92",
         "android_client_info": {
           "package_name": "com.example.store_hup"
         }
       },
       "oauth_client": [
         {
-          "client_id": "23035564503-ng21jdg6714o60qqua0i48otsfc8gtqq.apps.googleusercontent.com",
+          "client_id": "23035564503-pqp1h4pahfku9udp8tbt98ftrm03veri.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -67,10 +76,10 @@
               "client_type": 3
             },
             {
-              "client_id": "23035564503-gnsm46o5vcbeee8irlltmulupagu1c2p.apps.googleusercontent.com",
+              "client_id": "23035564503-5n1gmtvei5dcg0onv64uqk9unhmql71l.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.furitsControl"
+                "bundle_id": "com.example.fruitstoredachbored"
               }
             }
           ]

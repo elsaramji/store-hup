@@ -1,2 +1,0 @@
-D:/elsaramji_repos/fruits_store_project/store-hup/android/app/.cxx/RelWithDebInfo/6z711p3u/armeabi-v7a/CMakeFiles/edit_cache.dir
-D:/elsaramji_repos/fruits_store_project/store-hup/android/app/.cxx/RelWithDebInfo/6z711p3u/armeabi-v7a/CMakeFiles/rebuild_cache.dir
